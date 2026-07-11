@@ -1,0 +1,6 @@
+@SignalChain_HostAddress = http://localhost:5014
+
+GET {{SignalChain_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
