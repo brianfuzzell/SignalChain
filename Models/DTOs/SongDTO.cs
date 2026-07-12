@@ -11,7 +11,7 @@ public class SongDTO
     public string Title { get; set; }
     public string Writer { get; set; }
     [Required]
-    [MaxLength(50, ErrorMessage = "Song title must be 50 characters or less")]
+    [MaxLength(50, ErrorMessage = "Artist name must be 50 characters or less")]
     public string Artist { get; set; }
     public int YearRecorded { get; set; }
     [Required]
