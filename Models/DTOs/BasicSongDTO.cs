@@ -5,6 +5,6 @@ namespace SignalChain.Models.DTOs;
 
 public class BasicSongDTO
 {
-    public int SongId { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
 }
