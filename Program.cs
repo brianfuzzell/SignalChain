@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using SignalChain.Data;
+using SignalChain.Models;
 using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
