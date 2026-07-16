@@ -2,6 +2,8 @@ using AutoMapper;
 using SignalChain.Models;
 using SignalChain.Models.DTOs;
 
+namespace SignalChain.Models;
+
 public class AutoMapperProfiles : Profile
 {
     public AutoMapperProfiles()
@@ -16,5 +18,7 @@ public class AutoMapperProfiles : Profile
         CreateMap<StatusDTO, Status>();
         CreateMap<Song, BasicSongDTO>();
         CreateMap<Gear, BasicGearDTO>();
+        CreateMap<UserProfile, UserProfileDTO>();
+        CreateMap<UserProfileDTO, UserProfile>();
     }
 }
