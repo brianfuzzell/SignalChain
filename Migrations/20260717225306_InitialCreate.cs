@@ -219,7 +219,8 @@ namespace SignalChain.Migrations
                     Model = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     PurchaseYear = table.Column<string>(type: "text", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
-                    SerialNumber = table.Column<string>(type: "text", nullable: false)
+                    SerialNumber = table.Column<string>(type: "text", nullable: false),
+                    UserProfileId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -228,6 +229,12 @@ namespace SignalChain.Migrations
                         name: "FK_Gears_GearTypes_GearTypeId",
                         column: x => x.GearTypeId,
                         principalTable: "GearTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Gears_UserProfiles_UserProfileId",
+                        column: x => x.UserProfileId,
+                        principalTable: "UserProfiles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -242,7 +249,8 @@ namespace SignalChain.Migrations
                     Writer = table.Column<string>(type: "text", nullable: false),
                     Artist = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     YearRecorded = table.Column<int>(type: "integer", nullable: false),
-                    StatusId = table.Column<int>(type: "integer", nullable: false)
+                    StatusId = table.Column<int>(type: "integer", nullable: false),
+                    UserProfileId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -251,6 +259,12 @@ namespace SignalChain.Migrations
                         name: "FK_Songs_Statuses_StatusId",
                         column: x => x.StatusId,
                         principalTable: "Statuses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Songs_UserProfiles_UserProfileId",
+                        column: x => x.UserProfileId,
+                        principalTable: "UserProfiles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -291,9 +305,9 @@ namespace SignalChain.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2a4c6e8f-3b5d-4a7c-8e9f-1d3c5b7a9e0d", 0, "dd357080-2f20-418f-83ed-5fdc4b705e34", "rjohnson@signalchain.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEPeRZE51cDEkzAXZw9XTpZXCbC8pLHe/OJwq2OEj6Lb9mloBcqoY+sJeFavoxsp8PA==", null, false, "5b75d106-cdb7-423c-bd41-dd9eee7623da", false, "rjohnson" },
-                    { "8f7b2e4a-1c3d-4f6e-9a8b-5d2c1e0f3a4b", 0, "540b57f6-3d71-4dff-ae82-3abe3c9f307f", "ajohnson@signalchain.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEJxhaFvU95PJRo7ju29uMMDp353cNtDuLRWh0cO3fXJZCBenV7LCcarNGrNCLfgINA==", null, false, "eed99b5a-cf3d-4b20-aa91-e9d4237d58fe", false, "ajohnson" },
-                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "143c6e3b-bcca-4cdd-ae84-a505eb96e472", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEPIW16VRueSIO5b1WGuEf1/OStqQZnYmJiosHdfOeMJQgnH0GG3lG3S7IdeC8cOrdw==", null, false, "5ce25ac2-6af4-4e8f-8f19-9e881f8791f2", false, "Administrator" }
+                    { "2a4c6e8f-3b5d-4a7c-8e9f-1d3c5b7a9e0d", 0, "c61ff349-92b5-47c5-9867-3f2dd5775449", "rjohnson@signalchain.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEIe4/B8SiUWHte/KTUyRThu20766KVFxjM2/0zhudgJFkODs49hGIVFTDxdtb818SQ==", null, false, "2e8db894-3ef7-4f26-9ce8-c869042acc87", false, "rjohnson" },
+                    { "8f7b2e4a-1c3d-4f6e-9a8b-5d2c1e0f3a4b", 0, "ce5f8314-f1e4-4681-8ea5-d95a42e855ed", "ajohnson@signalchain.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEDqVumm2dd+6WcyOm8Y5vLk05sX4EzogPtPNZv6q0pSIbSy7HnWHvQUL88hj+Pf4BA==", null, false, "f689a41e-686b-4385-8ec6-627371165bb6", false, "ajohnson" },
+                    { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "6773a00b-f923-464d-bf02-63f47dd374d4", "admina@strator.comx", false, false, null, null, null, "AQAAAAIAAYagAAAAEBk3HkqHsUPsRWBHEW73mSrfCtxMKlqRNmJetQa33ujhTyj+OPyKacOBYlKwosPhsg==", null, false, "13ffa87f-38a3-4050-94bb-04b546c63e10", false, "Administrator" }
                 });
 
             migrationBuilder.InsertData(
@@ -325,58 +339,6 @@ namespace SignalChain.Migrations
                 values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f" });
 
             migrationBuilder.InsertData(
-                table: "Gears",
-                columns: new[] { "Id", "GearTypeId", "Model", "PurchaseYear", "Quantity", "SerialNumber" },
-                values: new object[,]
-                {
-                    { 1, 1, "Apple MacBook Air 2020 M1", "2021", 1, "FVFQHNACQ6L7" },
-                    { 2, 2, "Studio Projects B1 Match Pair lrg dia mics", "N/A", 1, "SPB1X9876" },
-                    { 3, 2, "Studio Projects B1 lrg dia microphone", "2024", 1, "SPB1X12345" },
-                    { 4, 2, "Audix i5 microphone", "2024", 2, "N/A" },
-                    { 5, 3, "Zildjian K hi-hats pair 14-inch", "2003", 1, "Top: JC 24956-097, Bottom: JC 24964-085" },
-                    { 6, 3, "Sabian AAX Metal crash 16-inch", "2004", 1, "N/A" },
-                    { 7, 3, "Zildjian A Medium-Thin crash 18-inch", "2017", 1, "AG85199 061" },
-                    { 8, 3, "Zildjian A Medium-Thin crash 19-inch", "2005", 1, "JE 43363 006" },
-                    { 9, 3, "Zildjian K Custom Medium ride 20-inch", "2004", 1, "JB 23527-016" },
-                    { 10, 3, "Gretsch Brooklyn 6.5x14 snare GB4164S", "2023", 1, "033239" },
-                    { 11, 3, "Gretsch Brooklyn Series drums", "2024", 3, "021463, 021452, 021467" },
-                    { 12, 3, "Fender 1105 SXE acoustic guitar", "1996", 1, "9091202" },
-                    { 13, 3, "Digital Piano 88-Key Keyboard", "2025", 1, "N/A" },
-                    { 14, 3, "Trombone Blessing BTB1488O", "2025", 1, "N/A" },
-                    { 15, 3, "Tambourine 8-inch Rock 'N' Roll Hall of Fame", "N/A", 1, "N/A" },
-                    { 16, 3, "Tambourine 10-inch Meinl Nino", "2005", 1, "N/A" },
-                    { 17, 3, "LP cowbell", "2006", 1, "N/A" },
-                    { 18, 4, "Vic Firth SIH3 Isolation headphones", "N/A", 1, "N/A" },
-                    { 19, 4, "Sennheiser HD 280 Pro headphones", "2025", 1, "N/A" },
-                    { 20, 4, "Sterling MX5 monitor speakers pair", "2024", 1, "N/A" },
-                    { 21, 4, "PreSonus Studio 1824c audio interface", "2024", 1, "SC4E24090030" },
-                    { 22, 5, "On-Stage MS7920B Bass Drum/Boom Combo Mic Stand", "2024", 3, "N/A" },
-                    { 23, 5, "JamStands JS-MSFB50 Low Profile Boom Mic Stand", "2024", 2, "N/A" },
-                    { 24, 5, "K&M 21021 Extra Tall Boom Microphone Stand", "2024", 2, "N/A" },
-                    { 25, 2, "Vocal pop filter", "2025", 1, "N/A" },
-                    { 26, 3, "Ludwig Classic Series 1972 14x5 metal snare", "N/A", 1, "3019535" },
-                    { 27, 3, "Ludwig maple snare 14x6.5", "2002", 1, "3390269" },
-                    { 28, 3, "LP Vibra-slap", "2025", 1, "N/A" },
-                    { 29, 3, "LP Sleigh Bells", "N/A", 1, "N/A" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Songs",
-                columns: new[] { "Id", "Artist", "StatusId", "Title", "Writer", "YearRecorded" },
-                values: new object[,]
-                {
-                    { 1, "Three Hit Combo", 2, "Emily", "Josh Tinley", 2026 },
-                    { 2, "Three Hit Combo", 4, "Baby Don't Go (It's Christmas)", "Josh Tinley", 2025 },
-                    { 3, "Three Hit Combo", 4, "Mary Had a Baby (and the Baby Was the Lord)", "Josh Tinley", 2025 },
-                    { 4, "Three Hit Combo", 4, "Jolly Old St. Nick", "Josh Tinley", 2025 },
-                    { 5, "Three Hit Combo", 1, "What I Worry", "Josh Tinley", 2025 },
-                    { 6, "Three Hit Combo", 1, "The Black Hole in the Middle of the Galaxy", "Josh Tinley", 2026 },
-                    { 7, "Three Hit Combo", 3, "Morning Fog (Nothing Left to Be)", "Josh Tinley", 2026 },
-                    { 8, "Three Hit Combo", 2, "The Grief We've Earned", "Josh Tinley", 2025 },
-                    { 9, "Three Hit Combo", 3, "Rewasher", "Josh Tinley", 2025 }
-                });
-
-            migrationBuilder.InsertData(
                 table: "UserProfiles",
                 columns: new[] { "Id", "Address", "Email", "FirstName", "IdentityUserId", "LastName", "UserName" },
                 values: new object[,]
@@ -384,6 +346,58 @@ namespace SignalChain.Migrations
                     { 1, "101 Main Street", "admina@strator.comx", "Admina", "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", "Strator", "Administrator" },
                     { 2, "202 Oak Avenue", "ajohnson@signalchain.comx", "Andre", "8f7b2e4a-1c3d-4f6e-9a8b-5d2c1e0f3a4b", "Johnson", "ajohnson" },
                     { 3, "202 Oak Avenue", "rjohnson@signalchain.comx", "Rainbow", "2a4c6e8f-3b5d-4a7c-8e9f-1d3c5b7a9e0d", "Johnson", "rjohnson" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Gears",
+                columns: new[] { "Id", "GearTypeId", "Model", "PurchaseYear", "Quantity", "SerialNumber", "UserProfileId" },
+                values: new object[,]
+                {
+                    { 1, 1, "Apple MacBook Air 2020 M1", "2021", 1, "FVFQHNACQ6L7", 1 },
+                    { 2, 2, "Studio Projects B1 Match Pair lrg dia mics", "N/A", 1, "SPB1X9876", 1 },
+                    { 3, 2, "Studio Projects B1 lrg dia microphone", "2024", 1, "SPB1X12345", 1 },
+                    { 4, 2, "Audix i5 microphone", "2024", 2, "N/A", 1 },
+                    { 5, 3, "Zildjian K hi-hats pair 14-inch", "2003", 1, "Top: JC 24956-097, Bottom: JC 24964-085", 1 },
+                    { 6, 3, "Sabian AAX Metal crash 16-inch", "2004", 1, "N/A", 1 },
+                    { 7, 3, "Zildjian A Medium-Thin crash 18-inch", "2017", 1, "AG85199 061", 1 },
+                    { 8, 3, "Zildjian A Medium-Thin crash 19-inch", "2005", 1, "JE 43363 006", 1 },
+                    { 9, 3, "Zildjian K Custom Medium ride 20-inch", "2004", 1, "JB 23527-016", 1 },
+                    { 10, 3, "Gretsch Brooklyn 6.5x14 snare GB4164S", "2023", 1, "033239", 1 },
+                    { 11, 3, "Gretsch Brooklyn Series drums", "2024", 3, "021463, 021452, 021467", 1 },
+                    { 12, 3, "Fender 1105 SXE acoustic guitar", "1996", 1, "9091202", 1 },
+                    { 13, 3, "Digital Piano 88-Key Keyboard", "2025", 1, "N/A", 1 },
+                    { 14, 3, "Trombone Blessing BTB1488O", "2025", 1, "N/A", 1 },
+                    { 15, 3, "Tambourine 8-inch Rock 'N' Roll Hall of Fame", "N/A", 1, "N/A", 1 },
+                    { 16, 3, "Tambourine 10-inch Meinl Nino", "2005", 1, "N/A", 1 },
+                    { 17, 3, "LP cowbell", "2006", 1, "N/A", 1 },
+                    { 18, 4, "Vic Firth SIH3 Isolation headphones", "N/A", 1, "N/A", 1 },
+                    { 19, 4, "Sennheiser HD 280 Pro headphones", "2025", 1, "N/A", 1 },
+                    { 20, 4, "Sterling MX5 monitor speakers pair", "2024", 1, "N/A", 1 },
+                    { 21, 4, "PreSonus Studio 1824c audio interface", "2024", 1, "SC4E24090030", 1 },
+                    { 22, 5, "On-Stage MS7920B Bass Drum/Boom Combo Mic Stand", "2024", 3, "N/A", 1 },
+                    { 23, 5, "JamStands JS-MSFB50 Low Profile Boom Mic Stand", "2024", 2, "N/A", 1 },
+                    { 24, 5, "K&M 21021 Extra Tall Boom Microphone Stand", "2024", 2, "N/A", 1 },
+                    { 25, 2, "Vocal pop filter", "2025", 1, "N/A", 1 },
+                    { 26, 3, "Ludwig Classic Series 1972 14x5 metal snare", "N/A", 1, "3019535", 1 },
+                    { 27, 3, "Ludwig maple snare 14x6.5", "2002", 1, "3390269", 1 },
+                    { 28, 3, "LP Vibra-slap", "2025", 1, "N/A", 1 },
+                    { 29, 3, "LP Sleigh Bells", "N/A", 1, "N/A", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Songs",
+                columns: new[] { "Id", "Artist", "StatusId", "Title", "UserProfileId", "Writer", "YearRecorded" },
+                values: new object[,]
+                {
+                    { 1, "Three Hit Combo", 2, "Emily", 1, "Josh Tinley", 2026 },
+                    { 2, "Three Hit Combo", 4, "Baby Don't Go (It's Christmas)", 1, "Josh Tinley", 2025 },
+                    { 3, "Three Hit Combo", 4, "Mary Had a Baby (and the Baby Was the Lord)", 1, "Josh Tinley", 2025 },
+                    { 4, "Three Hit Combo", 4, "Jolly Old St. Nick", 1, "Josh Tinley", 2025 },
+                    { 5, "Three Hit Combo", 1, "What I Worry", 1, "Josh Tinley", 2025 },
+                    { 6, "Three Hit Combo", 1, "The Black Hole in the Middle of the Galaxy", 1, "Josh Tinley", 2026 },
+                    { 7, "Three Hit Combo", 3, "Morning Fog (Nothing Left to Be)", 1, "Josh Tinley", 2026 },
+                    { 8, "Three Hit Combo", 2, "The Grief We've Earned", 1, "Josh Tinley", 2025 },
+                    { 9, "Three Hit Combo", 3, "Rewasher", 1, "Josh Tinley", 2025 }
                 });
 
             migrationBuilder.InsertData(
@@ -625,6 +639,11 @@ namespace SignalChain.Migrations
                 column: "GearTypeId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Gears_UserProfileId",
+                table: "Gears",
+                column: "UserProfileId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GearSongs_GearId",
                 table: "GearSongs",
                 column: "GearId");
@@ -638,6 +657,11 @@ namespace SignalChain.Migrations
                 name: "IX_Songs_StatusId",
                 table: "Songs",
                 column: "StatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Songs_UserProfileId",
+                table: "Songs",
+                column: "UserProfileId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserProfiles_IdentityUserId",
@@ -667,9 +691,6 @@ namespace SignalChain.Migrations
                 name: "GearSongs");
 
             migrationBuilder.DropTable(
-                name: "UserProfiles");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -679,13 +700,16 @@ namespace SignalChain.Migrations
                 name: "Songs");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "GearTypes");
 
             migrationBuilder.DropTable(
                 name: "Statuses");
+
+            migrationBuilder.DropTable(
+                name: "UserProfiles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }
