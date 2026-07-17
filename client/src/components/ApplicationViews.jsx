@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import Bikes from "./bikes/Bikes";
 import { AuthorizedRoute } from "./auth/AuthorizedRoute";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import WorkOrderList from "./workorders/WorkOrderList";
-import CreateWorkOrder from "./workorders/CreateWorkOrder";
-import UserProfileList from "./userprofiles/UserProfileList";
+import { GearList } from "./gear/GearList";
+import { SongList } from "./songs/SongList";
+import { CreateGear } from "./gear/CreateGear";
+import { CreateSong } from "./songs/CreateSong";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -15,24 +15,16 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           index
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
+              <GearList />
             </AuthorizedRoute>
           }
         />
-        <Route
-          path="..."
-          element={
-            <AuthorizedRoute loggedInUser={loggedInUser}>
-              <Bikes />
-            </AuthorizedRoute>
-          }
-        />
-        <Route path="...">
+        <Route path="gear">
           <Route
             index
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
-                <WorkOrderList />
+                <GearList />
               </AuthorizedRoute>
             }
           />
@@ -40,19 +32,29 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             path="create"
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
-                <CreateWorkOrder />
+                <CreateGear />
               </AuthorizedRoute>
             }
           />
         </Route>
-        <Route
-          path="..."
-          element={
-            <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
-              <UserProfileList />
-            </AuthorizedRoute>
-          }
-        />
+        <Route path="songs">
+          <Route
+            index
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <SongList />
+              </AuthorizedRoute>
+            }
+          />
+          <Route
+            path="create"
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <CreateSong />
+              </AuthorizedRoute>
+            }
+          />
+        </Route>
         <Route
           path="login"
           element={<Login setLoggedInUser={setLoggedInUser} />}
@@ -62,7 +64,10 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={<Register setLoggedInUser={setLoggedInUser} />}
         />
       </Route>
-      <Route path="*" element={<p>Whoops, nothing here...</p>} />
+      <Route
+        path="*"
+        element={<h3>This isn't the path you're looking for...</h3>}
+      />
     </Routes>
   );
 }

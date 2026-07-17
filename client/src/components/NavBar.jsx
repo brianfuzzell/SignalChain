@@ -9,6 +9,7 @@ import {
   Navbar,
   NavbarBrand,
   NavbarToggler,
+  NavbarText,
 } from "reactstrap";
 import { logout } from "../managers/authManager";
 
@@ -27,8 +28,24 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
           <>
             <NavbarToggler onClick={toggleNavbar} />
             <Collapse isOpen={open} navbar>
-              <Nav navbar></Nav>
+              <Nav navbar>
+                <NavItem onClick={() => setOpen(false)}>
+                  <NavLink tag={RRNavLink} to="/gear">
+                    Gear
+                  </NavLink>
+                </NavItem>
+                <NavItem onClick={() => setOpen(false)}>
+                  <NavLink tag={RRNavLink} to="/songs">
+                    Songs
+                  </NavLink>
+                </NavItem>
+              </Nav>
             </Collapse>
+           {/*  {loggedInUser.roles.include("Admin") && (
+              <NavbarText style={{ marginRight: "4px" }}>
+                Studio Inventory: {inventory}
+              </NavbarText>
+            )} */}
             <Button
               color="primary"
               onClick={(e) => {
