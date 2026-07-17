@@ -149,13 +149,13 @@ namespace SignalChain.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "143c6e3b-bcca-4cdd-ae84-a505eb96e472",
+                            ConcurrencyStamp = "6773a00b-f923-464d-bf02-63f47dd374d4",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPIW16VRueSIO5b1WGuEf1/OStqQZnYmJiosHdfOeMJQgnH0GG3lG3S7IdeC8cOrdw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBk3HkqHsUPsRWBHEW73mSrfCtxMKlqRNmJetQa33ujhTyj+OPyKacOBYlKwosPhsg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5ce25ac2-6af4-4e8f-8f19-9e881f8791f2",
+                            SecurityStamp = "13ffa87f-38a3-4050-94bb-04b546c63e10",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         },
@@ -163,13 +163,13 @@ namespace SignalChain.Migrations
                         {
                             Id = "8f7b2e4a-1c3d-4f6e-9a8b-5d2c1e0f3a4b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "540b57f6-3d71-4dff-ae82-3abe3c9f307f",
+                            ConcurrencyStamp = "ce5f8314-f1e4-4681-8ea5-d95a42e855ed",
                             Email = "ajohnson@signalchain.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJxhaFvU95PJRo7ju29uMMDp353cNtDuLRWh0cO3fXJZCBenV7LCcarNGrNCLfgINA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDqVumm2dd+6WcyOm8Y5vLk05sX4EzogPtPNZv6q0pSIbSy7HnWHvQUL88hj+Pf4BA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eed99b5a-cf3d-4b20-aa91-e9d4237d58fe",
+                            SecurityStamp = "f689a41e-686b-4385-8ec6-627371165bb6",
                             TwoFactorEnabled = false,
                             UserName = "ajohnson"
                         },
@@ -177,13 +177,13 @@ namespace SignalChain.Migrations
                         {
                             Id = "2a4c6e8f-3b5d-4a7c-8e9f-1d3c5b7a9e0d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dd357080-2f20-418f-83ed-5fdc4b705e34",
+                            ConcurrencyStamp = "c61ff349-92b5-47c5-9867-3f2dd5775449",
                             Email = "rjohnson@signalchain.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEPeRZE51cDEkzAXZw9XTpZXCbC8pLHe/OJwq2OEj6Lb9mloBcqoY+sJeFavoxsp8PA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIe4/B8SiUWHte/KTUyRThu20766KVFxjM2/0zhudgJFkODs49hGIVFTDxdtb818SQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5b75d106-cdb7-423c-bd41-dd9eee7623da",
+                            SecurityStamp = "2e8db894-3ef7-4f26-9ce8-c869042acc87",
                             TwoFactorEnabled = false,
                             UserName = "rjohnson"
                         });
@@ -304,9 +304,14 @@ namespace SignalChain.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("GearTypeId");
+
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("Gears");
 
@@ -318,7 +323,8 @@ namespace SignalChain.Migrations
                             Model = "Apple MacBook Air 2020 M1",
                             PurchaseYear = "2021",
                             Quantity = 1,
-                            SerialNumber = "FVFQHNACQ6L7"
+                            SerialNumber = "FVFQHNACQ6L7",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -327,7 +333,8 @@ namespace SignalChain.Migrations
                             Model = "Studio Projects B1 Match Pair lrg dia mics",
                             PurchaseYear = "N/A",
                             Quantity = 1,
-                            SerialNumber = "SPB1X9876"
+                            SerialNumber = "SPB1X9876",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -336,7 +343,8 @@ namespace SignalChain.Migrations
                             Model = "Studio Projects B1 lrg dia microphone",
                             PurchaseYear = "2024",
                             Quantity = 1,
-                            SerialNumber = "SPB1X12345"
+                            SerialNumber = "SPB1X12345",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -345,7 +353,8 @@ namespace SignalChain.Migrations
                             Model = "Audix i5 microphone",
                             PurchaseYear = "2024",
                             Quantity = 2,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -354,7 +363,8 @@ namespace SignalChain.Migrations
                             Model = "Zildjian K hi-hats pair 14-inch",
                             PurchaseYear = "2003",
                             Quantity = 1,
-                            SerialNumber = "Top: JC 24956-097, Bottom: JC 24964-085"
+                            SerialNumber = "Top: JC 24956-097, Bottom: JC 24964-085",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -363,7 +373,8 @@ namespace SignalChain.Migrations
                             Model = "Sabian AAX Metal crash 16-inch",
                             PurchaseYear = "2004",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -372,7 +383,8 @@ namespace SignalChain.Migrations
                             Model = "Zildjian A Medium-Thin crash 18-inch",
                             PurchaseYear = "2017",
                             Quantity = 1,
-                            SerialNumber = "AG85199 061"
+                            SerialNumber = "AG85199 061",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -381,7 +393,8 @@ namespace SignalChain.Migrations
                             Model = "Zildjian A Medium-Thin crash 19-inch",
                             PurchaseYear = "2005",
                             Quantity = 1,
-                            SerialNumber = "JE 43363 006"
+                            SerialNumber = "JE 43363 006",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -390,7 +403,8 @@ namespace SignalChain.Migrations
                             Model = "Zildjian K Custom Medium ride 20-inch",
                             PurchaseYear = "2004",
                             Quantity = 1,
-                            SerialNumber = "JB 23527-016"
+                            SerialNumber = "JB 23527-016",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -399,7 +413,8 @@ namespace SignalChain.Migrations
                             Model = "Gretsch Brooklyn 6.5x14 snare GB4164S",
                             PurchaseYear = "2023",
                             Quantity = 1,
-                            SerialNumber = "033239"
+                            SerialNumber = "033239",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -408,7 +423,8 @@ namespace SignalChain.Migrations
                             Model = "Gretsch Brooklyn Series drums",
                             PurchaseYear = "2024",
                             Quantity = 3,
-                            SerialNumber = "021463, 021452, 021467"
+                            SerialNumber = "021463, 021452, 021467",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -417,7 +433,8 @@ namespace SignalChain.Migrations
                             Model = "Fender 1105 SXE acoustic guitar",
                             PurchaseYear = "1996",
                             Quantity = 1,
-                            SerialNumber = "9091202"
+                            SerialNumber = "9091202",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -426,7 +443,8 @@ namespace SignalChain.Migrations
                             Model = "Digital Piano 88-Key Keyboard",
                             PurchaseYear = "2025",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -435,7 +453,8 @@ namespace SignalChain.Migrations
                             Model = "Trombone Blessing BTB1488O",
                             PurchaseYear = "2025",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -444,7 +463,8 @@ namespace SignalChain.Migrations
                             Model = "Tambourine 8-inch Rock 'N' Roll Hall of Fame",
                             PurchaseYear = "N/A",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -453,7 +473,8 @@ namespace SignalChain.Migrations
                             Model = "Tambourine 10-inch Meinl Nino",
                             PurchaseYear = "2005",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -462,7 +483,8 @@ namespace SignalChain.Migrations
                             Model = "LP cowbell",
                             PurchaseYear = "2006",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -471,7 +493,8 @@ namespace SignalChain.Migrations
                             Model = "Vic Firth SIH3 Isolation headphones",
                             PurchaseYear = "N/A",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -480,7 +503,8 @@ namespace SignalChain.Migrations
                             Model = "Sennheiser HD 280 Pro headphones",
                             PurchaseYear = "2025",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -489,7 +513,8 @@ namespace SignalChain.Migrations
                             Model = "Sterling MX5 monitor speakers pair",
                             PurchaseYear = "2024",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -498,7 +523,8 @@ namespace SignalChain.Migrations
                             Model = "PreSonus Studio 1824c audio interface",
                             PurchaseYear = "2024",
                             Quantity = 1,
-                            SerialNumber = "SC4E24090030"
+                            SerialNumber = "SC4E24090030",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -507,7 +533,8 @@ namespace SignalChain.Migrations
                             Model = "On-Stage MS7920B Bass Drum/Boom Combo Mic Stand",
                             PurchaseYear = "2024",
                             Quantity = 3,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -516,7 +543,8 @@ namespace SignalChain.Migrations
                             Model = "JamStands JS-MSFB50 Low Profile Boom Mic Stand",
                             PurchaseYear = "2024",
                             Quantity = 2,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -525,7 +553,8 @@ namespace SignalChain.Migrations
                             Model = "K&M 21021 Extra Tall Boom Microphone Stand",
                             PurchaseYear = "2024",
                             Quantity = 2,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -534,7 +563,8 @@ namespace SignalChain.Migrations
                             Model = "Vocal pop filter",
                             PurchaseYear = "2025",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -543,7 +573,8 @@ namespace SignalChain.Migrations
                             Model = "Ludwig Classic Series 1972 14x5 metal snare",
                             PurchaseYear = "N/A",
                             Quantity = 1,
-                            SerialNumber = "3019535"
+                            SerialNumber = "3019535",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -552,7 +583,8 @@ namespace SignalChain.Migrations
                             Model = "Ludwig maple snare 14x6.5",
                             PurchaseYear = "2002",
                             Quantity = 1,
-                            SerialNumber = "3390269"
+                            SerialNumber = "3390269",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -561,7 +593,8 @@ namespace SignalChain.Migrations
                             Model = "LP Vibra-slap",
                             PurchaseYear = "2025",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         },
                         new
                         {
@@ -570,7 +603,8 @@ namespace SignalChain.Migrations
                             Model = "LP Sleigh Bells",
                             PurchaseYear = "N/A",
                             Quantity = 1,
-                            SerialNumber = "N/A"
+                            SerialNumber = "N/A",
+                            UserProfileId = 1
                         });
                 });
 
@@ -1798,6 +1832,9 @@ namespace SignalChain.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Writer")
                         .IsRequired()
                         .HasColumnType("text");
@@ -1809,6 +1846,8 @@ namespace SignalChain.Migrations
 
                     b.HasIndex("StatusId");
 
+                    b.HasIndex("UserProfileId");
+
                     b.ToTable("Songs");
 
                     b.HasData(
@@ -1818,6 +1857,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 2,
                             Title = "Emily",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2026
                         },
@@ -1827,6 +1867,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 4,
                             Title = "Baby Don't Go (It's Christmas)",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2025
                         },
@@ -1836,6 +1877,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 4,
                             Title = "Mary Had a Baby (and the Baby Was the Lord)",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2025
                         },
@@ -1845,6 +1887,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 4,
                             Title = "Jolly Old St. Nick",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2025
                         },
@@ -1854,6 +1897,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 1,
                             Title = "What I Worry",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2025
                         },
@@ -1863,6 +1907,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 1,
                             Title = "The Black Hole in the Middle of the Galaxy",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2026
                         },
@@ -1872,6 +1917,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 3,
                             Title = "Morning Fog (Nothing Left to Be)",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2026
                         },
@@ -1881,6 +1927,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 2,
                             Title = "The Grief We've Earned",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2025
                         },
@@ -1890,6 +1937,7 @@ namespace SignalChain.Migrations
                             Artist = "Three Hit Combo",
                             StatusId = 3,
                             Title = "Rewasher",
+                            UserProfileId = 1,
                             Writer = "Josh Tinley",
                             YearRecorded = 2025
                         });
@@ -2064,7 +2112,15 @@ namespace SignalChain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SignalChain.Models.UserProfile", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("GearType");
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("SignalChain.Models.GearSong", b =>
@@ -2094,7 +2150,15 @@ namespace SignalChain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SignalChain.Models.UserProfile", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Status");
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("SignalChain.Models.UserProfile", b =>

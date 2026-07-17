@@ -103,7 +103,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Apple MacBook Air 2020 M1",
                 PurchaseYear = "2021",
                 Quantity = 1,
-                SerialNumber = "FVFQHNACQ6L7"
+                SerialNumber = "FVFQHNACQ6L7",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -112,7 +113,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Studio Projects B1 Match Pair lrg dia mics",
                 PurchaseYear = "N/A",
                 Quantity = 1,
-                SerialNumber = "SPB1X9876"
+                SerialNumber = "SPB1X9876",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -121,7 +123,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Studio Projects B1 lrg dia microphone",
                 PurchaseYear = "2024",
                 Quantity = 1,
-                SerialNumber = "SPB1X12345"
+                SerialNumber = "SPB1X12345",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -130,7 +133,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Audix i5 microphone",
                 PurchaseYear = "2024",
                 Quantity = 2,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -139,7 +143,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Zildjian K hi-hats pair 14-inch",
                 PurchaseYear = "2003",
                 Quantity = 1,
-                SerialNumber = "Top: JC 24956-097, Bottom: JC 24964-085"
+                SerialNumber = "Top: JC 24956-097, Bottom: JC 24964-085",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -148,7 +153,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Sabian AAX Metal crash 16-inch",
                 PurchaseYear = "2004",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -157,7 +163,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Zildjian A Medium-Thin crash 18-inch",
                 PurchaseYear = "2017",
                 Quantity = 1,
-                SerialNumber = "AG85199 061"
+                SerialNumber = "AG85199 061",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -166,7 +173,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Zildjian A Medium-Thin crash 19-inch",
                 PurchaseYear = "2005",
                 Quantity = 1,
-                SerialNumber = "JE 43363 006"
+                SerialNumber = "JE 43363 006",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -175,7 +183,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Zildjian K Custom Medium ride 20-inch",
                 PurchaseYear = "2004",
                 Quantity = 1,
-                SerialNumber = "JB 23527-016"
+                SerialNumber = "JB 23527-016",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -184,7 +193,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Gretsch Brooklyn 6.5x14 snare GB4164S",
                 PurchaseYear = "2023",
                 Quantity = 1,
-                SerialNumber = "033239"
+                SerialNumber = "033239",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -193,7 +203,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Gretsch Brooklyn Series drums",
                 PurchaseYear = "2024",
                 Quantity = 3,
-                SerialNumber = "021463, 021452, 021467"
+                SerialNumber = "021463, 021452, 021467",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -202,7 +213,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Fender 1105 SXE acoustic guitar",
                 PurchaseYear = "1996",
                 Quantity = 1,
-                SerialNumber = "9091202"
+                SerialNumber = "9091202",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -211,7 +223,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Digital Piano 88-Key Keyboard",
                 PurchaseYear = "2025",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -220,7 +233,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Trombone Blessing BTB1488O",
                 PurchaseYear = "2025",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -229,7 +243,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Tambourine 8-inch Rock 'N' Roll Hall of Fame",
                 PurchaseYear = "N/A",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -238,7 +253,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Tambourine 10-inch Meinl Nino",
                 PurchaseYear = "2005",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -247,7 +263,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "LP cowbell",
                 PurchaseYear = "2006",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -256,7 +273,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Vic Firth SIH3 Isolation headphones",
                 PurchaseYear = "N/A",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -265,7 +283,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Sennheiser HD 280 Pro headphones",
                 PurchaseYear = "2025",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -274,7 +293,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Sterling MX5 monitor speakers pair",
                 PurchaseYear = "2024",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -283,7 +303,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "PreSonus Studio 1824c audio interface",
                 PurchaseYear = "2024",
                 Quantity = 1,
-                SerialNumber = "SC4E24090030"
+                SerialNumber = "SC4E24090030",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -292,7 +313,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "On-Stage MS7920B Bass Drum/Boom Combo Mic Stand",
                 PurchaseYear = "2024",
                 Quantity = 3,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -301,7 +323,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "JamStands JS-MSFB50 Low Profile Boom Mic Stand",
                 PurchaseYear = "2024",
                 Quantity = 2,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -310,7 +333,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "K&M 21021 Extra Tall Boom Microphone Stand",
                 PurchaseYear = "2024",
                 Quantity = 2,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -319,7 +343,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Vocal pop filter",
                 PurchaseYear = "2025",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -328,7 +353,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Ludwig Classic Series 1972 14x5 metal snare",
                 PurchaseYear = "N/A",
                 Quantity = 1,
-                SerialNumber = "3019535"
+                SerialNumber = "3019535",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -337,7 +363,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "Ludwig maple snare 14x6.5",
                 PurchaseYear = "2002",
                 Quantity = 1,
-                SerialNumber = "3390269"
+                SerialNumber = "3390269",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -346,7 +373,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "LP Vibra-slap",
                 PurchaseYear = "2025",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             },
             new Gear
             {
@@ -355,7 +383,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Model = "LP Sleigh Bells",
                 PurchaseYear = "N/A",
                 Quantity = 1,
-                SerialNumber = "N/A"
+                SerialNumber = "N/A",
+                UserProfileId = 1
             }
         });
 
@@ -377,7 +406,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2026,
-                StatusId = 2
+                StatusId = 2,
+                UserProfileId = 1
             },
             new Song
             {
@@ -386,7 +416,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2025,
-                StatusId = 4
+                StatusId = 4,
+                UserProfileId = 1
             },
             new Song
             {
@@ -395,7 +426,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2025,
-                StatusId = 4
+                StatusId = 4,
+                UserProfileId = 1
             },
             new Song
             {
@@ -404,7 +436,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2025,
-                StatusId = 4
+                StatusId = 4,
+                UserProfileId = 1
             },
             new Song
             {
@@ -413,7 +446,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2025,
-                StatusId = 1
+                StatusId = 1,
+                UserProfileId = 1
             },
             new Song
             {
@@ -422,7 +456,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2026,
-                StatusId = 1
+                StatusId = 1,
+                UserProfileId = 1
             },
             new Song
             {
@@ -431,7 +466,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2026,
-                StatusId = 3
+                StatusId = 3,
+                UserProfileId = 1
             },
             new Song
             {
@@ -440,7 +476,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2025,
-                StatusId = 2
+                StatusId = 2,
+                UserProfileId = 1
             },
             new Song
             {
@@ -449,7 +486,8 @@ public class SignalChainDbContext : IdentityDbContext<IdentityUser>
                 Writer = "Josh Tinley",
                 Artist = "Three Hit Combo",
                 YearRecorded = 2025,
-                StatusId = 3
+                StatusId = 3,
+                UserProfileId = 1
             }
         });
 
