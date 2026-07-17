@@ -17,4 +17,6 @@ public class Gear
     public int Quantity { get; set; }
     public string SerialNumber { get; set; }
     public List<GearSong> GearSongs { get; set; }
+    public int UserProfileId { get; set; }
+    public UserProfile UserProfile { get; set; }
 }

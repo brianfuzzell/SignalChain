@@ -18,4 +18,6 @@ public class Song
     public int StatusId { get; set; }
     public Status Status { get; set; }
     public List<GearSong> GearSongs { get; set; }
+    public int UserProfileId { get; set; }
+    public UserProfile UserProfile { get; set; }
 }
