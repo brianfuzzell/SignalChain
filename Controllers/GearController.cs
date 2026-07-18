@@ -119,4 +119,16 @@ public class GearController : ControllerBase
 
         return NoContent();
     }
+
+    // TODO: Delete Gear
+    // [HttpDelete("{id}")]
+    // [Authorize(Roles = "Admin")]
+
+    // TODO: Assign gear item to a song
+    // [HttpPost("{id}/assign")]
+    // [Authorize]
+
+    // TODO: Remove song from using gear item
+    // [HttpPost("{id}/unassign")]
+    // [Authorize]
 }
