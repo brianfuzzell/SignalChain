@@ -313,7 +313,7 @@ namespace SignalChain.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("Gears");
+                    b.ToTable("Gears", (string)null);
 
                     b.HasData(
                         new
@@ -628,7 +628,7 @@ namespace SignalChain.Migrations
 
                     b.HasIndex("SongId");
 
-                    b.ToTable("GearSongs");
+                    b.ToTable("GearSongs", (string)null);
 
                     b.HasData(
                         new
@@ -1781,7 +1781,7 @@ namespace SignalChain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GearTypes");
+                    b.ToTable("GearTypes", (string)null);
 
                     b.HasData(
                         new
@@ -1848,7 +1848,7 @@ namespace SignalChain.Migrations
 
                     b.HasIndex("UserProfileId");
 
-                    b.ToTable("Songs");
+                    b.ToTable("Songs", (string)null);
 
                     b.HasData(
                         new
@@ -1957,7 +1957,7 @@ namespace SignalChain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Statuses");
+                    b.ToTable("Statuses", (string)null);
 
                     b.HasData(
                         new
@@ -2018,7 +2018,7 @@ namespace SignalChain.Migrations
 
                     b.HasIndex("IdentityUserId");
 
-                    b.ToTable("UserProfiles");
+                    b.ToTable("UserProfiles", (string)null);
 
                     b.HasData(
                         new
