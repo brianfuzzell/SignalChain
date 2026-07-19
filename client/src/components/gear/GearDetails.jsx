@@ -25,8 +25,7 @@ export const GearDetails = () => {
   };
 
   useEffect(() => {
-    getGears()
-      .then(setGears);
+    getGears().then(setGears);
   }, []);
 
   useEffect(() => {
@@ -43,8 +42,7 @@ export const GearDetails = () => {
   }, [id]);
 
   useEffect(() => {
-    getGearTypes()
-      .then(setGearTypes);
+    getGearTypes().then(setGearTypes);
   }, []);
 
   if (gear === null) return <p>Gear item not found.</p>;
@@ -56,9 +54,8 @@ export const GearDetails = () => {
       <Form>
         <FormGroup>
           <Label for="type">Type</Label>
-          {/* TODO: dropdown should be pre-selected to this item's type */}
           <select
-            value={formData.gearType}
+            value={formData.gearTypeId}
             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
           >
             <option value="">Gear type</option>
