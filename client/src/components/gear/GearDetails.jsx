@@ -69,7 +69,9 @@ export const GearDetails = () => {
           <Label for="type">Type</Label>
           <select
             value={formData.gearTypeId}
-            onChange={(e) => setFormData({ ...formData, gearTypeId: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, gearTypeId: e.target.value })
+            }
           >
             <option value="">Gear type</option>
             {gearTypes.map((gt) => (
@@ -125,6 +127,14 @@ export const GearDetails = () => {
         </FormGroup>
         <Button type="submit">Update</Button>
       </Form>
+      <h3>Songs Using This Gear</h3>
+      <div>
+        <ul>
+          {gear.songsUsingGear.map((gear, index) => (
+            <li key={index}>{gear.title}</li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
