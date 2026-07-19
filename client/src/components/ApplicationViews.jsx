@@ -6,6 +6,7 @@ import { GearList } from "./gear/GearList";
 import { SongList } from "./songs/SongList";
 import { CreateGear } from "./gear/CreateGear";
 import { CreateSong } from "./songs/CreateSong";
+import { GearDetails } from "./gear/GearDetails";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -33,6 +34,14 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
                 <CreateGear />
+              </AuthorizedRoute>
+            }
+          />
+           <Route
+            path=":id"
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <GearDetails />
               </AuthorizedRoute>
             }
           />

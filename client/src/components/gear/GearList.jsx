@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, Table } from "reactstrap";
 
 import { getGears } from "../../managers/gearManager";
+import { Link } from "react-router-dom";
 
 export const GearList = ({ loggedInUser }) => {
   const [gears, setGears] = useState([]);
@@ -40,7 +41,7 @@ export const GearList = ({ loggedInUser }) => {
               <td>{g.model}</td>
               <td>{g.purchaseYear}</td>
               <td>{g.quantity}</td>
-              <td>Details</td>
+              <td><Link to={`/gear/${g.id}`}>Details</Link></td>
               <td>
                 Delete
                 {/* {loggedInUser.roles.includes("Admin") ? (
