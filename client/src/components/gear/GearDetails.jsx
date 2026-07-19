@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { getGearById, getGears } from "../../managers/gearManager";
+import { getGearById, getGears, updateGear } from "../../managers/gearManager";
 import { getGearTypes } from "../../managers/gearTypeManager";
 import { getGearTypeById } from "../../managers/gearTypeManager";
 
@@ -47,16 +47,29 @@ export const GearDetails = () => {
 
   if (gear === null) return <p>Gear item not found.</p>;
 
+  const handleEditGear = (event) => {
+    event.preventDefault();
+
+    const updatedGear = {
+      ...formData,
+      id,
+    };
+
+    updateGear(updatedGear).then(() => {
+      navigate("/gear");
+    });
+  };
+
   return (
     <>
       <h2>Gear Details</h2>
       <h4>{gear.model}</h4>
-      <Form>
+      <Form onSubmit={handleEditGear}>
         <FormGroup>
           <Label for="type">Type</Label>
           <select
             value={formData.gearTypeId}
-            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+            onChange={(e) => setFormData({ ...formData, gearTypeId: e.target.value })}
           >
             <option value="">Gear type</option>
             {gearTypes.map((gt) => (
