@@ -28,6 +28,15 @@ export const updateGear = (gear) => {
   });
 };
 
+export const removeSongFromGear = (id, songId) => {
+  return fetch(`${_apiUrl}/${id}/songs/${songId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
 // TODO: Delete a gear item
 /* export const deleteGear = (id) => {
     return fetch(`${_apiUrl}/${id}`, {
@@ -37,5 +46,3 @@ export const updateGear = (gear) => {
 }; */
 
 // TODO: Assign gear item to a song
-
-// TODO: Remove song from using gear item
