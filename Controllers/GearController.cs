@@ -24,7 +24,7 @@ public class GearController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize]
+    //[Authorize]
     public IActionResult Get()
     {
         List<Gear> gears = _dbContext
@@ -39,7 +39,7 @@ public class GearController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize]
+    //[Authorize]
     public IActionResult GetById(int id)
     {
         Gear? gear = _dbContext
@@ -103,7 +103,7 @@ public class GearController : ControllerBase
     [Authorize]
     public IActionResult UpdateGear(UpdateGearDTO gear, int id)
     {
-        Gear gearToUpdate = _dbContext.Gears.SingleOrDefault(g => g.Id == id);
+        Gear? gearToUpdate = _dbContext.Gears.SingleOrDefault(g => g.Id == id);
         if (gearToUpdate == null)
         {
             return NotFound();
@@ -120,6 +120,23 @@ public class GearController : ControllerBase
         return NoContent();
     }
 
+    // Remove song from using gear item
+    [HttpDelete("{id}/songs/{songId}")]
+    //[Authorize(Roles = "Admin")]
+    public IActionResult RemoveSong(int id, int songId)
+    {
+        GearSong? songToRemove = _dbContext.GearSongs.SingleOrDefault(gs => gs.GearId == id && gs.SongId == songId);
+        if (songToRemove == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.GearSongs.Remove(songToRemove);
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
     // TODO: Delete Gear
     // [HttpDelete("{id}")]
     // [Authorize(Roles = "Admin")]
@@ -128,7 +145,5 @@ public class GearController : ControllerBase
     // [HttpPost("{id}/assign")]
     // [Authorize]
 
-    // TODO: Remove song from using gear item
-    // [HttpPost("{id}/unassign")]
-    // [Authorize]
+
 }
