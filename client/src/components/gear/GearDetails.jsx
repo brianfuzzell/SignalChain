@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { getGearById, getGears, updateGear } from "../../managers/gearManager";
+import { Button, Form, FormGroup, Input, Label, Table } from "reactstrap";
+import {
+  getGearById,
+  getGears,
+  removeSongFromGear,
+  updateGear,
+} from "../../managers/gearManager";
 import { getGearTypes } from "../../managers/gearTypeManager";
 import { getGearTypeById } from "../../managers/gearTypeManager";
 
@@ -57,6 +62,12 @@ export const GearDetails = () => {
 
     updateGear(updatedGear).then(() => {
       navigate("/gear");
+    });
+  };
+
+  const handleRemoveSong = (id, songId) => {
+    removeSongFromGear(id, songId).then(() => {
+      getGearDetails(id);
     });
   };
 
@@ -128,13 +139,20 @@ export const GearDetails = () => {
         <Button type="submit">Update</Button>
       </Form>
       <h3>Songs Using This Gear</h3>
-      <div>
-        <ul>
-          {gear.songsUsingGear.map((gear, index) => (
-            <li key={index}>{gear.title}</li>
+      <Table>
+        <tbody>
+          {gear.songsUsingGear.map((song, index) => (
+            <tr key={index}>
+              <td scope="row">{song.title}</td>
+              <td>
+                <Button onClick={() => handleRemoveSong(id, song.id)}>
+                  Remove
+                </Button>
+              </td>
+            </tr>
           ))}
-        </ul>
-      </div>
+        </tbody>
+      </Table>
     </>
   );
 };
