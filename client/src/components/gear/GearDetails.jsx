@@ -10,7 +10,7 @@ import {
 import { getGearTypes } from "../../managers/gearTypeManager";
 import { getGearTypeById } from "../../managers/gearTypeManager";
 
-export const GearDetails = () => {
+export const GearDetails = ({ loggedInUser }) => {
   const { id } = useParams();
   const [gears, setGears] = useState([]);
   const [gear, setGear] = useState(null);
@@ -145,9 +145,13 @@ export const GearDetails = () => {
             <tr key={index}>
               <td scope="row">{song.title}</td>
               <td>
-                <Button onClick={() => handleRemoveSong(id, song.id)}>
-                  Remove
-                </Button>
+                {loggedInUser.roles.includes("Admin") ? (
+                  <Button onClick={() => handleRemoveSong(id, song.id)}>
+                    Remove
+                  </Button>
+                ) : (
+                  ""
+                )}
               </td>
             </tr>
           ))}

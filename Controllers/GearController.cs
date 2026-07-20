@@ -24,7 +24,7 @@ public class GearController : ControllerBase
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     public IActionResult Get()
     {
         List<Gear> gears = _dbContext
@@ -39,7 +39,7 @@ public class GearController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetById(int id)
     {
         Gear? gear = _dbContext
@@ -122,7 +122,7 @@ public class GearController : ControllerBase
 
     // Remove song from using gear item
     [HttpDelete("{id}/songs/{songId}")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public IActionResult RemoveSong(int id, int songId)
     {
         GearSong? songToRemove = _dbContext.GearSongs.SingleOrDefault(gs => gs.GearId == id && gs.SongId == songId);
