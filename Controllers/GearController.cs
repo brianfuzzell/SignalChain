@@ -120,7 +120,6 @@ public class GearController : ControllerBase
         return NoContent();
     }
 
-    // Remove song from using gear item
     [HttpDelete("{id}/songs/{songId}")]
     [Authorize(Roles = "Admin")]
     public IActionResult RemoveSong(int id, int songId)
