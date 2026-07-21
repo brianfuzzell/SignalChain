@@ -16,5 +16,6 @@ public class SongDTO
     public int YearRecorded { get; set; }
     [Required]
     public int StatusId { get; set; }
+    public StatusDTO Status { get; set; }
     public List<BasicGearDTO> GearUsed { get; set; }
 }

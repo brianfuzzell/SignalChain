@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SignalChain.Data;
@@ -11,9 +12,11 @@ using SignalChain.Data;
 namespace SignalChain.Migrations
 {
     [DbContext(typeof(SignalChainDbContext))]
-    partial class SignalChainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260721205431_AddSongsStatusRelationship")]
+    partial class AddSongsStatusRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
