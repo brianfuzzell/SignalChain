@@ -16,7 +16,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           index
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <GearList />
+              <GearList loggedInUser={loggedInUser} />
             </AuthorizedRoute>
           }
         />
@@ -25,7 +25,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             index
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
-                <GearList />
+                <GearList loggedInUser={loggedInUser} />
               </AuthorizedRoute>
             }
           />

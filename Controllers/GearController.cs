@@ -157,7 +157,19 @@ public class GearController : ControllerBase
         return NoContent();
     }
 
-    // TODO: Delete Gear
-    // [HttpDelete("{id}")]
-    // [Authorize(Roles = "Admin")]
+    [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult DeleteGear(int id)
+    {
+        Gear? gearToDelete = _dbContext.Gears.SingleOrDefault(g => g.Id == id);
+        if (gearToDelete == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.Remove(gearToDelete);
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
 }

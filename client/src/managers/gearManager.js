@@ -47,10 +47,9 @@ export const assignSongToGear = (id, newGearSong) => {
   });
 };
 
-// TODO: Delete a gear item
-/* export const deleteGear = (id) => {
+export const deleteGear = (id) => {
     return fetch(`${_apiUrl}/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
     });
-}; */
+};
