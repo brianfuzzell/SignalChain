@@ -21,7 +21,9 @@ export const GearList = ({ loggedInUser }) => {
     <>
       <h2>Studio Gear</h2>
       <div>
-        <Button>+Add Gear</Button>
+        <Link to="/gear/create">
+          <Button>+Add Gear</Button>
+        </Link>
       </div>
       <Table>
         <thead>
@@ -41,7 +43,9 @@ export const GearList = ({ loggedInUser }) => {
               <td>{g.model}</td>
               <td>{g.purchaseYear}</td>
               <td>{g.quantity}</td>
-              <td><Link to={`/gear/${g.id}`}>Details</Link></td>
+              <td>
+                <Link to={`/gear/${g.id}`}>Details</Link>
+              </td>
               <td>
                 Delete
                 {/* {loggedInUser.roles.includes("Admin") ? (
