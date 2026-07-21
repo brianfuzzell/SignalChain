@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Button, Table } from "reactstrap";
-
-import { getGears } from "../../managers/gearManager";
+import { deleteGear, getGears } from "../../managers/gearManager";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 export const GearList = ({ loggedInUser }) => {
   const [gears, setGears] = useState([]);
@@ -11,11 +12,11 @@ export const GearList = ({ loggedInUser }) => {
     getGears().then(setGears);
   }, []);
 
-  /*   const handleDeleteGear = (id) => {
+  const handleDeleteGear = (id) => {
     deleteGear(id).then(() => {
-        getGears().then(setGears);
+      getGears().then(setGears);
     });
-  }; */
+  };
 
   return (
     <>
@@ -47,17 +48,16 @@ export const GearList = ({ loggedInUser }) => {
                 <Link to={`/gear/${g.id}`}>Details</Link>
               </td>
               <td>
-                Delete
-                {/* {loggedInUser.roles.includes("Admin") ? (
-                  <Button
+                {loggedInUser.roles.includes("Admin") ? (
+                  // TODO: Add some CSS for hover - see Chuckle Checklist project
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    style={{ color: "#7ba591" }}
                     onClick={() => handleDeleteGear(g.id)}
-                    color="danger"
-                  >
-                    Delete
-                  </Button>
+                  />
                 ) : (
                   ""
-                )} */}
+                )}
               </td>
             </tr>
           ))}
