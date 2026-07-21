@@ -24,7 +24,7 @@ public class SongController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize]
+    //[Authorize]
     public IActionResult Get()
     {
         List<Song> songs = _dbContext
