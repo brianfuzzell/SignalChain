@@ -1,22 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Form, FormGroup, Input, Label, Table } from "reactstrap";
-import {
-  getGearById,
-  getGears,
-  removeSongFromGear,
-  updateGear,
-} from "../../managers/gearManager";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { getGearById, getGears, updateGear } from "../../managers/gearManager";
 import { getGearTypes } from "../../managers/gearTypeManager";
-import { getGearTypeById } from "../../managers/gearTypeManager";
 import { AssignGearSong } from "./AssignGearSong";
+import { SongsUsingGear } from "./SongsUsingGear";
 
 export const GearDetails = ({ loggedInUser }) => {
   const { id } = useParams();
   const [gears, setGears] = useState([]);
   const [gear, setGear] = useState(null);
   const [gearTypes, setGearTypes] = useState([]);
-  const [gearType, setGearType] = useState(null);
   const [formData, setFormData] = useState({
     gearTypeId: "",
     model: "",
@@ -63,12 +57,6 @@ export const GearDetails = ({ loggedInUser }) => {
 
     updateGear(updatedGear).then(() => {
       navigate("/gear");
-    });
-  };
-
-  const handleRemoveSong = (id, songId) => {
-    removeSongFromGear(id, songId).then(() => {
-      getGearDetails(id);
     });
   };
 
@@ -139,25 +127,7 @@ export const GearDetails = ({ loggedInUser }) => {
         </FormGroup>
         <Button type="submit">Update</Button>
       </Form>
-      <h3>Songs Using This Gear</h3>
-      <Table>
-        <tbody>
-          {gear.songsUsingGear.map((song, index) => (
-            <tr key={index}>
-              <td scope="row">{song.title}</td>
-              <td>
-                {loggedInUser.roles.includes("Admin") ? (
-                  <Button onClick={() => handleRemoveSong(id, song.id)}>
-                    Remove
-                  </Button>
-                ) : (
-                  ""
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <SongsUsingGear getGearDetails={getGearDetails} gear={gear} loggedInUser={loggedInUser} />
       <AssignGearSong getGearDetails={getGearDetails} />
     </>
   );
