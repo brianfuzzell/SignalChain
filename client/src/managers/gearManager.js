@@ -37,7 +37,6 @@ export const removeSongFromGear = (id, songId) => {
   });
 };
 
-// Assign song to a gear item
 export const assignSongToGear = (id, newGearSong) => {
   return fetch(`${_apiUrl}/${id}/songs`, {
     method: "POST",
