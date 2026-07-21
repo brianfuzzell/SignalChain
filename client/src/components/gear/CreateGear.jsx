@@ -1,11 +1,99 @@
-
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { createGear } from "../../managers/gearManager";
+import { getGearTypes } from "../../managers/gearTypeManager";
 
 export const CreateGear = () => {
+  const [gearTypeId, setGearTypeId] = useState("");
+  const [model, setModel] = useState("");
+  const [purchaseYear, setPurchaseYear] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [serialNumber, setSerialNumber] = useState("");
+  const [errors, setErrors] = useState("");
+  const [gearTypes, setGearTypes] = useState([]);
 
+  useEffect(() => {
+    getGearTypes().then(setGearTypes);
+  }, []);
 
-    return (
-        <>
-            <h2>Add to Gear Inventory</h2>
-        </>
-    )
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newGear = {
+      gearTypeId,
+      model,
+      purchaseYear,
+      quantity,
+      serialNumber,
+    };
+
+    createGear(newGear).then((res) => {
+      if (res.errors) {
+        setErrors(res.errors);
+      } else {
+        navigate("/gear");
+      }
+    });
+  };
+
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <h2>Add Gear</h2>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label for="gearTypeId">Type</Label>
+          <select
+            value={gearTypeId}
+            onChange={(e) => setGearTypeId(e.target.value)}
+          >
+            <option value="">Gear type</option>
+            {gearTypes.map((gt) => (
+              <option key={gt.id} value={gt.id}>
+                {gt.name}
+              </option>
+            ))}
+          </select>
+        </FormGroup>
+        <FormGroup>
+          <Label for="model">Model</Label>
+          <Input
+            type="text"
+            value={model}
+            id="model"
+            onChange={(e) => setModel(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="purchase-year">Purchase Year</Label>
+          <Input
+            type="text"
+            value={purchaseYear}
+            id="purchase-year"
+            onChange={(e) => setPurchaseYear(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="quantity">Quantity</Label>
+          <Input
+            type="text"
+            value={quantity}
+            id="quantity"
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="serial-number">Serial Number</Label>
+          <Input
+            type="text"
+            value={serialNumber}
+            id="serial-number"
+            onChange={(e) => setSerialNumber(e.target.value)}
+          />
+        </FormGroup>
+        <Button type="submit">Add</Button>
+      </Form>
+    </>
+  );
+};

@@ -4,9 +4,9 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import { GearList } from "./gear/GearList";
 import { SongList } from "./songs/SongList";
-import { CreateGear } from "./gear/CreateGear";
 import { CreateSong } from "./songs/CreateSong";
 import { GearDetails } from "./gear/GearDetails";
+import { CreateGear } from "./gear/CreateGear";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
