@@ -9,6 +9,7 @@ import {
 } from "../../managers/gearManager";
 import { getGearTypes } from "../../managers/gearTypeManager";
 import { getGearTypeById } from "../../managers/gearTypeManager";
+import { AssignGearSong } from "./AssignGearSong";
 
 export const GearDetails = ({ loggedInUser }) => {
   const { id } = useParams();
@@ -157,6 +158,7 @@ export const GearDetails = ({ loggedInUser }) => {
           ))}
         </tbody>
       </Table>
+      <AssignGearSong getGearDetails={getGearDetails} />
     </>
   );
 };

@@ -136,13 +136,28 @@ public class GearController : ControllerBase
         return NoContent();
     }
 
+    [HttpPost("{id}/songs")]
+    [Authorize]
+    public IActionResult AssignSong(int id, [FromBody] NewGearSongDTO newGearSong)
+    {
+        Gear? gearToAssign = _dbContext.Gears.SingleOrDefault(g => g.Id == id);
+        if (gearToAssign == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.GearSongs.Add(new GearSong
+        {
+            GearId = id,
+            SongId = newGearSong.SongId
+        });
+
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
+
     // TODO: Delete Gear
     // [HttpDelete("{id}")]
     // [Authorize(Roles = "Admin")]
-
-    // TODO: Assign gear item to a song
-    // [HttpPost("{id}/assign")]
-    // [Authorize]
-
-
 }
