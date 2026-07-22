@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getSongById } from "../../managers/songManager";
+import { getSongById, updateSong } from "../../managers/songManager";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { getStatuses } from "../../managers/statusManager";
 
@@ -41,11 +41,24 @@ export const SongDetails = () => {
 
   if (song === null) return <p>Song not found.</p>;
 
+  const handleEditSong = (event) => {
+    event.preventDefault();
+
+    const updatedSong = {
+      ...formData,
+      id,
+    };
+
+    updateSong(updatedSong).then(() => {
+      navigate("/songs");
+    });
+  };
+
   return (
     <>
       <h2>Song Details</h2>
       <h4>{song.title}</h4>
-      <Form>
+      <Form onSubmit={handleEditSong}>
         <FormGroup>
           <Label for="title">Title</Label>
           <Input

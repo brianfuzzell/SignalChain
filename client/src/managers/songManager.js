@@ -7,3 +7,13 @@ export const getSongs = () => {
 export const getSongById = (id) => {
   return fetch(`${_apiUrl}/${id}`).then((res) => res.json());
 };
+
+export const updateSong = (song) => {
+  return fetch(`${_apiUrl}/${song.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(song),
+  });
+};
