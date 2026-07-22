@@ -60,4 +60,25 @@ public class SongController : ControllerBase
 
         return Ok(songDTO);
     }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public IActionResult UpdateSong(UpdateSongDTO song, int id)
+    {
+        Song? songToUpdate = _dbContext.Songs.SingleOrDefault(s => s.Id == id);
+        if (songToUpdate == null)
+        {
+            return NotFound();
+        }
+
+        songToUpdate.Title = song.Title;
+        songToUpdate.Writer = song.Writer;
+        songToUpdate.Artist = song.Artist;
+        songToUpdate.YearRecorded = song.YearRecorded;
+        songToUpdate.StatusId = song.StatusId;
+
+        _dbContext.SaveChanges();
+
+        return NoContent();
+    }
 }
