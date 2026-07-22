@@ -24,7 +24,7 @@ public class SongController : ControllerBase
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     public IActionResult Get()
     {
         List<Song> songs = _dbContext
@@ -123,7 +123,7 @@ public class SongController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public IActionResult DeleteSong(int id)
     {
         Song? songToDelete = _dbContext.Songs.SingleOrDefault(s => s.Id == id);
