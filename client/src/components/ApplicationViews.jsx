@@ -52,7 +52,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             index
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
-                <SongList />
+                <SongList loggedInUser={loggedInUser} />
               </AuthorizedRoute>
             }
           />

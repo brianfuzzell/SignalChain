@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
-import { getSongs } from "../../managers/songManager";
+import { deleteSong, getSongs } from "../../managers/songManager";
 import { Link } from "react-router-dom";
 import { Button, Table } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
-export const SongList = () => {
+export const SongList = ({ loggedInUser }) => {
   const [songs, setSongs] = useState([]);
 
   useEffect(() => {
     getSongs().then(setSongs);
   }, []);
+
+  const handleDeleteSong = (id) => {
+    deleteSong(id).then(() => {
+      getSongs().then(setSongs);
+    });
+  };
 
   return (
     <>
@@ -35,7 +43,19 @@ export const SongList = () => {
               <td>
                 <Link to={`/songs/${s.id}`}>Details</Link>
               </td>
-              <td>{/* TODO: Admin Delete */}</td>
+              <td>
+                {loggedInUser.roles.includes("Admin") &&
+                s.status.name != "Released" ? (
+                  // TODO: Add some CSS for hover - see Chuckle Checklist project
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    style={{ color: "#7ba591" }}
+                    onClick={() => handleDeleteSong(s.id)}
+                  />
+                ) : (
+                  ""
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
