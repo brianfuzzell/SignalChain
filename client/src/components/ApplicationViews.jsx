@@ -7,6 +7,7 @@ import { SongList } from "./songs/SongList";
 import { CreateSong } from "./songs/CreateSong";
 import { GearDetails } from "./gear/GearDetails";
 import { CreateGear } from "./gear/CreateGear";
+import { SongDetails } from "./songs/SongDetails";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -60,6 +61,14 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
                 <CreateSong />
+              </AuthorizedRoute>
+            }
+          />
+          <Route
+            path=":id"
+            element={
+              <AuthorizedRoute loggedInUser={loggedInUser}>
+                <SongDetails loggedInUser={loggedInUser} />
               </AuthorizedRoute>
             }
           />
