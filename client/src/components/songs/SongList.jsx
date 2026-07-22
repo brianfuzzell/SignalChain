@@ -32,7 +32,9 @@ export const SongList = () => {
             <tr key={s.id}>
               <td scope="row">{s.title}</td>
               <td>{s.status.name}</td>
-              <td>Details{/* TODO: <Link to={`/song/${s.id}`}>Details</Link> */}</td>
+              <td>
+                <Link to={`/songs/${s.id}`}>Details</Link>
+              </td>
               <td>{/* TODO: Admin Delete */}</td>
             </tr>
           ))}
