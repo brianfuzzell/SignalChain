@@ -40,7 +40,7 @@ public class SongController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetById(int id)
     {
         Song? song = _dbContext
