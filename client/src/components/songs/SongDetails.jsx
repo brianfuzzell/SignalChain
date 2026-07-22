@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getSongById } from "../../managers/songManager";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { getStatuses } from "../../managers/statusManager";
 
 export const SongDetails = () => {
   const { id } = useParams();
   const [songs, setSongs] = useState([]);
   const [song, setSong] = useState(null);
+  const [statuses, setStatuses] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     writer: "",
@@ -32,11 +35,79 @@ export const SongDetails = () => {
     });
   }, [id]);
 
+  useEffect(() => {
+    getStatuses().then(setStatuses);
+  }, []);
+
   if (song === null) return <p>Song not found.</p>;
 
   return (
     <>
       <h2>Song Details</h2>
+      <h4>{song.title}</h4>
+      <Form>
+        <FormGroup>
+          <Label for="title">Title</Label>
+          <Input
+            type="text"
+            value={formData.title}
+            id="title"
+            onChange={(e) =>
+              setFormData({ ...formData, title: e.target.value })
+            }
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="writer">Writer</Label>
+          <Input
+            type="text"
+            value={formData.writer}
+            id="writer"
+            onChange={(e) =>
+              setFormData({ ...formData, writer: e.target.value })
+            }
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="artist">Artist</Label>
+          <Input
+            type="text"
+            value={formData.artist}
+            id="artist"
+            onChange={(e) =>
+              setFormData({ ...formData, artist: e.target.value })
+            }
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="year-recorded">Year Recorded</Label>
+          <Input
+            type="text"
+            value={formData.yearRecorded}
+            id="year-recorded"
+            onChange={(e) =>
+              setFormData({ ...formData, yearRecorded: e.target.value })
+            }
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="status">Status</Label>
+          <select
+            value={formData.statusId}
+            onChange={(e) =>
+              setFormData({ ...formData, statusId: e.target.value })
+            }
+          >
+            <option value="">Song status</option>
+            {statuses.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.name}
+              </option>
+            ))}
+          </select>
+        </FormGroup>
+        <Button type="submit">Update</Button>
+      </Form>
     </>
   );
 };

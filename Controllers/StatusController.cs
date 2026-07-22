@@ -6,18 +6,17 @@ using SignalChain.Models.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
-using System.Security.Claims;
 
 namespace SignalChain.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class SongController : ControllerBase
+public class StatusController : ControllerBase
 {
     private SignalChainDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public SongController(SignalChainDbContext context, IMapper mapper)
+    public StatusController(SignalChainDbContext context, IMapper mapper)
     {
         _dbContext = context;
         _mapper = mapper;
@@ -27,37 +26,31 @@ public class SongController : ControllerBase
     [Authorize]
     public IActionResult Get()
     {
-        List<Song> songs = _dbContext
-            .Songs
-            .Include(s => s.Status)
-            .Include(s => s.GearSongs)
-            .OrderBy(s => s.Title)
+        List<Status> statuses = _dbContext
+            .Statuses
+            .OrderBy(s => s.Name)
             .ToList();
 
-        List<SongDTO> songDTOs = _mapper.Map<List<SongDTO>>(songs);
+        List<StatusDTO> statusDTOs = _mapper.Map<List<StatusDTO>>(statuses);
 
-        return Ok(songDTOs);
+        return Ok(statusDTOs);
     }
 
     [HttpGet("{id}")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetById(int id)
     {
-        Song? song = _dbContext
-            .Songs
-            .Include(s => s.Status)
-            .Include(s => s.GearSongs)
-                .ThenInclude(gs => gs.Gear)
-                    .ThenInclude(g => g.GearType)
+        Status? status = _dbContext
+            .Statuses
             .SingleOrDefault(s => s.Id == id);
 
-        if (song == null)
+        if (status == null)
         {
             return NotFound();
         }
 
-        SongDTO songDTO = _mapper.Map<SongDTO>(song);
+        StatusDTO statusDTO = _mapper.Map<StatusDTO>(status);
 
-        return Ok(songDTO);
+        return Ok(statusDTO);
     }
 }
