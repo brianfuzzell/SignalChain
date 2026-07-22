@@ -27,3 +27,10 @@ export const updateSong = (song) => {
     body: JSON.stringify(song),
   });
 };
+
+export const deleteSong = (id) => {
+  return fetch(`${_apiUrl}/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+};
