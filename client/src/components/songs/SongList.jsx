@@ -14,9 +14,9 @@ export const SongList = () => {
     <>
       <h2>Songs in Production</h2>
       <div>
-        {/* TODO: <Link to="/song/create">
+        <Link to="/songs/create">
           <Button>+Add Song</Button>
-        </Link> */}
+        </Link>
       </div>
       <Table>
         <thead>
@@ -32,7 +32,9 @@ export const SongList = () => {
             <tr key={s.id}>
               <td scope="row">{s.title}</td>
               <td>{s.status.name}</td>
-              <td>Details{/* TODO: <Link to={`/song/${s.id}`}>Details</Link> */}</td>
+              <td>
+                <Link to={`/songs/${s.id}`}>Details</Link>
+              </td>
               <td>{/* TODO: Admin Delete */}</td>
             </tr>
           ))}

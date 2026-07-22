@@ -70,6 +70,37 @@ public class SongController : ControllerBase
         return Ok(songDTO);
     }
 
+    [HttpPost]
+    [Authorize]
+    public IActionResult CreateSong(NewSongDTO newSong)
+    {
+        var identityUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == identityUserId);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
+        Song song = new Song
+        {
+            Title = newSong.Title,
+            Writer = newSong.Writer,
+            Artist = newSong.Artist,
+            YearRecorded = newSong.YearRecorded,
+            StatusId = newSong.StatusId,
+            UserProfileId = profile.Id
+        };
+
+        _dbContext.Songs.Add(song);
+        _dbContext.SaveChanges();
+
+        SongDTO songDTO = _mapper.Map<SongDTO>(song);
+        songDTO.GearUsed = new List<BasicGearDTO>();
+
+        return Created($"/api/song/{song.Id}", songDTO);
+    }
+
     [HttpPut("{id}")]
     [Authorize]
     public IActionResult UpdateSong(UpdateSongDTO song, int id)
