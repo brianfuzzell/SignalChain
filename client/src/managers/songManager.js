@@ -8,6 +8,16 @@ export const getSongById = (id) => {
   return fetch(`${_apiUrl}/${id}`).then((res) => res.json());
 };
 
+export const createSong = (song) => {
+  return fetch(_apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(song),
+  }).then((res) => res.json());
+};
+
 export const updateSong = (song) => {
   return fetch(`${_apiUrl}/${song.id}`, {
     method: "PUT",

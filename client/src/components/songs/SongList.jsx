@@ -14,9 +14,9 @@ export const SongList = () => {
     <>
       <h2>Songs in Production</h2>
       <div>
-        {/* TODO: <Link to="/song/create">
+        <Link to="/songs/create">
           <Button>+Add Song</Button>
-        </Link> */}
+        </Link>
       </div>
       <Table>
         <thead>
