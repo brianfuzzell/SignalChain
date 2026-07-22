@@ -3,8 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getSongById, updateSong } from "../../managers/songManager";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { getStatuses } from "../../managers/statusManager";
+import { GearUsedOnSong } from "./GearUsedOnSong";
 
-export const SongDetails = () => {
+export const SongDetails = ({ loggedInUser }) => {
   const { id } = useParams();
   const [songs, setSongs] = useState([]);
   const [song, setSong] = useState(null);
@@ -17,10 +18,6 @@ export const SongDetails = () => {
     statusId: "",
   });
   const navigate = useNavigate();
-
-  const getSongDetails = (id) => {
-    getSongById(id).then(setSong);
-  };
 
   useEffect(() => {
     getSongById(id).then((fetchedSong) => {
@@ -121,6 +118,7 @@ export const SongDetails = () => {
         </FormGroup>
         <Button type="submit">Update</Button>
       </Form>
+      <GearUsedOnSong song={song} />
     </>
   );
 };

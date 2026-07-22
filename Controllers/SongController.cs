@@ -58,6 +58,15 @@ public class SongController : ControllerBase
 
         SongDTO songDTO = _mapper.Map<SongDTO>(song);
 
+        songDTO.GearUsed = song.GearSongs
+            .Select(gs => new BasicGearDTO
+            {
+                Id = gs.GearId,
+                Model = gs.Gear.Model
+            })
+            .OrderBy(gs => gs.Model)
+            .ToList();
+
         return Ok(songDTO);
     }
 
