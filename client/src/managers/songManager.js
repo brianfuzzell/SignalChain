@@ -15,7 +15,13 @@ export const createSong = (song) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(song),
-  }).then((res) => res.json());
+  }).then((res) => {
+    if (res.ok) {
+      return null;
+    } else {
+      return res.json();
+    }
+  });
 };
 
 export const updateSong = (song) => {
@@ -25,6 +31,12 @@ export const updateSong = (song) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(song),
+  }).then((res) => {
+    if (res.ok) {
+      return null;
+    } else {
+      return res.json();
+    }
   });
 };
 

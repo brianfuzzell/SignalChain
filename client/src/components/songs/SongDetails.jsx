@@ -17,6 +17,7 @@ export const SongDetails = ({ loggedInUser }) => {
     yearRecorded: "",
     statusId: "",
   });
+  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,16 +44,28 @@ export const SongDetails = ({ loggedInUser }) => {
 
     const updatedSong = {
       ...formData,
+      statusId: parseInt(formData.statusId),
       id,
     };
 
-    updateSong(updatedSong).then(() => {
-      navigate("/songs");
+    updateSong(updatedSong).then((res) => {
+      if (res.errors) {
+        setErrors(res.errors);
+      } else {
+        navigate("/songs");
+      }
     });
   };
 
   return (
     <>
+      <div style={{ color: "red" }}>
+        {Object.keys(errors).map((key) => (
+          <p key={key}>
+            {key}: {errors[key].join(",")}
+          </p>
+        ))}
+      </div>
       <h2>Song Details</h2>
       <h4>{song.title}</h4>
       <Form onSubmit={handleEditSong}>

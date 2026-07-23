@@ -18,6 +18,7 @@ export const GearDetails = ({ loggedInUser }) => {
     quantity: "",
     serialNumber: "",
   });
+  const [errors, setErrors] = useState("");
   const navigate = useNavigate();
 
   const getGearDetails = (id) => {
@@ -52,16 +53,29 @@ export const GearDetails = ({ loggedInUser }) => {
 
     const updatedGear = {
       ...formData,
+      gearTypeId: parseInt(formData.gearTypeId),
+      quantity: parseInt(formData.quantity),
       id,
     };
 
-    updateGear(updatedGear).then(() => {
-      navigate("/gear");
+    updateGear(updatedGear).then((res) => {
+      if (res.errors) {
+        setErrors(res.errors);
+      } else {
+        navigate("/gear");
+      }
     });
   };
 
   return (
     <>
+      <div style={{ color: "red" }}>
+        {Object.keys(errors).map((key) => (
+          <p key={key}>
+            {key}: {errors[key].join(",")}
+          </p>
+        ))}
+      </div>
       <h2>Gear Details</h2>
       <h4>{gear.model}</h4>
       <Form onSubmit={handleEditGear}>
@@ -127,7 +141,11 @@ export const GearDetails = ({ loggedInUser }) => {
         </FormGroup>
         <Button type="submit">Update</Button>
       </Form>
-      <SongsUsingGear getGearDetails={getGearDetails} gear={gear} loggedInUser={loggedInUser} />
+      <SongsUsingGear
+        getGearDetails={getGearDetails}
+        gear={gear}
+        loggedInUser={loggedInUser}
+      />
       <AssignGearSong getGearDetails={getGearDetails} />
     </>
   );
