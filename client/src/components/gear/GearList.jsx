@@ -19,7 +19,7 @@ export const GearList = ({ loggedInUser }) => {
   };
 
   return (
-    <>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <h2>Studio Gear</h2>
       <div>
         <Link to="/gear/create">
@@ -49,10 +49,10 @@ export const GearList = ({ loggedInUser }) => {
               </td>
               <td>
                 {loggedInUser.roles.includes("Admin") ? (
-                  // TODO: Add some CSS for hover - see Chuckle Checklist project
                   <FontAwesomeIcon
+                    className="delete-btn"
                     icon={faTrashCan}
-                    style={{ color: "#7ba591" }}
+                    style={{ color: "#666666" }}
                     onClick={() => handleDeleteGear(g.id)}
                   />
                 ) : (
@@ -63,6 +63,6 @@ export const GearList = ({ loggedInUser }) => {
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };

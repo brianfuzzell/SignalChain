@@ -59,16 +59,16 @@ export const GearDetails = ({ loggedInUser }) => {
     };
 
     updateGear(updatedGear).then((res) => {
-      if (res.errors) {
-        setErrors(res.errors);
-      } else {
+      if (res === null) {
         navigate("/gear");
+      } else {
+        setErrors(res.errors);
       }
     });
   };
 
   return (
-    <>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
@@ -78,10 +78,11 @@ export const GearDetails = ({ loggedInUser }) => {
       </div>
       <h2>Gear Details</h2>
       <h4>{gear.model}</h4>
-      <Form onSubmit={handleEditGear}>
-        <FormGroup>
+      <Form onSubmit={handleEditGear} className="flex-form">
+        <FormGroup className="flex-fields">
           <Label for="type">Type</Label>
-          <select
+          <Input
+            type="select"
             value={formData.gearTypeId}
             onChange={(e) =>
               setFormData({ ...formData, gearTypeId: e.target.value })
@@ -93,9 +94,9 @@ export const GearDetails = ({ loggedInUser }) => {
                 {gt.name}
               </option>
             ))}
-          </select>
+          </Input>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="model">Model</Label>
           <Input
             type="text"
@@ -106,7 +107,7 @@ export const GearDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="purchase-year">Purchase Year</Label>
           <Input
             type="text"
@@ -117,7 +118,7 @@ export const GearDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="quantity">Quantity</Label>
           <Input
             type="text"
@@ -128,7 +129,7 @@ export const GearDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="full-width">
           <Label for="serial-number">Serial Number</Label>
           <Input
             type="text"
@@ -139,7 +140,9 @@ export const GearDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <Button type="submit">Update</Button>
+        <Button type="submit" className="full-width">
+          Update
+        </Button>
       </Form>
       <SongsUsingGear
         getGearDetails={getGearDetails}
@@ -147,6 +150,6 @@ export const GearDetails = ({ loggedInUser }) => {
         loggedInUser={loggedInUser}
       />
       <AssignGearSong getGearDetails={getGearDetails} />
-    </>
+    </div>
   );
 };

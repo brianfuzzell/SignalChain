@@ -19,7 +19,7 @@ export const SongList = ({ loggedInUser }) => {
   };
 
   return (
-    <>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <h2>Songs in Production</h2>
       <div>
         <Link to="/songs/create">
@@ -46,10 +46,10 @@ export const SongList = ({ loggedInUser }) => {
               <td>
                 {loggedInUser.roles.includes("Admin") &&
                 s.status.name != "Released" ? (
-                  // TODO: Add some CSS for hover - see Chuckle Checklist project
                   <FontAwesomeIcon
+                    className="delete-btn"
                     icon={faTrashCan}
-                    style={{ color: "#7ba591" }}
+                    style={{ color: "#666666" }}
                     onClick={() => handleDeleteSong(s.id)}
                   />
                 ) : (
@@ -60,6 +60,6 @@ export const SongList = ({ loggedInUser }) => {
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
