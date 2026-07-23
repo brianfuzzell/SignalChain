@@ -25,8 +25,8 @@ export const CreateSong = () => {
       title,
       writer,
       artist,
-      yearRecorded,
-      statusId,
+      yearRecorded: parseInt(yearRecorded),
+      statusId: parseInt(statusId),
     };
 
     createSong(newSong).then((res) => {
@@ -40,6 +40,13 @@ export const CreateSong = () => {
 
   return (
     <>
+      <div style={{ color: "red" }}>
+        {Object.keys(errors).map((key) => (
+          <p key={key}>
+            {key}: {errors[key].join(",")}
+          </p>
+        ))}
+      </div>
       <h2>Add a Song</h2>
       <Form onSubmit={handleSubmit}>
         <FormGroup>

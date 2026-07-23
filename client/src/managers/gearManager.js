@@ -15,7 +15,13 @@ export const createGear = (gear) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(gear),
-  }).then((res) => res.json());
+  }).then((res) => {
+    if (res.ok) {
+      return null;
+    } else {
+      return res.json();
+    }
+  });
 };
 
 export const updateGear = (gear) => {
@@ -25,6 +31,12 @@ export const updateGear = (gear) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(gear),
+  }).then((res) => {
+    if (res.ok) {
+      return null;
+    } else {
+      return res.json();
+    }
   });
 };
 
@@ -48,8 +60,8 @@ export const assignSongToGear = (id, newGearSong) => {
 };
 
 export const deleteGear = (id) => {
-    return fetch(`${_apiUrl}/${id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-    });
+  return fetch(`${_apiUrl}/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
 };

@@ -82,10 +82,10 @@ public class GearController : ControllerBase
 
         Gear gear = new Gear
         {
-            GearTypeId = newGear.GearTypeId,
+            GearTypeId = newGear.GearTypeId.Value,
             Model = newGear.Model,
             PurchaseYear = newGear.PurchaseYear,
-            Quantity = newGear.Quantity,
+            Quantity = newGear.Quantity.Value,
             SerialNumber = newGear.SerialNumber,
             UserProfileId = profile.Id
         };
@@ -109,10 +109,10 @@ public class GearController : ControllerBase
             return NotFound();
         }
 
-        gearToUpdate.GearTypeId = gear.GearTypeId;
+        gearToUpdate.GearTypeId = gear.GearTypeId.Value;
         gearToUpdate.Model = gear.Model;
         gearToUpdate.PurchaseYear = gear.PurchaseYear;
-        gearToUpdate.Quantity = gear.Quantity;
+        gearToUpdate.Quantity = gear.Quantity.Value;
         gearToUpdate.SerialNumber = gear.SerialNumber;
 
         _dbContext.SaveChanges();

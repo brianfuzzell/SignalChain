@@ -20,10 +20,10 @@ export const CreateGear = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newGear = {
-      gearTypeId,
+      gearTypeId: parseInt(gearTypeId),
       model,
       purchaseYear,
-      quantity,
+      quantity: parseInt(quantity),
       serialNumber,
     };
 
@@ -40,6 +40,13 @@ export const CreateGear = () => {
 
   return (
     <>
+      <div style={{ color: "red" }}>
+        {Object.keys(errors).map((key) => (
+          <p key={key}>
+            {key}: {errors[key].join(",")}
+          </p>
+        ))}
+      </div>
       <h2>Add Gear</h2>
       <Form onSubmit={handleSubmit}>
         <FormGroup>

@@ -87,8 +87,8 @@ public class SongController : ControllerBase
             Title = newSong.Title,
             Writer = newSong.Writer,
             Artist = newSong.Artist,
-            YearRecorded = newSong.YearRecorded,
-            StatusId = newSong.StatusId,
+            YearRecorded = newSong.YearRecorded.Value,
+            StatusId = newSong.StatusId.Value,
             UserProfileId = profile.Id
         };
 
@@ -115,7 +115,7 @@ public class SongController : ControllerBase
         songToUpdate.Writer = song.Writer;
         songToUpdate.Artist = song.Artist;
         songToUpdate.YearRecorded = song.YearRecorded;
-        songToUpdate.StatusId = song.StatusId;
+        songToUpdate.StatusId = song.StatusId.Value;
 
         _dbContext.SaveChanges();
 

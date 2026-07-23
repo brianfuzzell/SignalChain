@@ -14,5 +14,5 @@ public class UpdateSongDTO
     public string Artist { get; set; }
     public int YearRecorded { get; set; }
     [Required]
-    public int StatusId { get; set; }
+    public int? StatusId { get; set; }
 }
