@@ -28,10 +28,10 @@ export const CreateGear = () => {
     };
 
     createGear(newGear).then((res) => {
-      if (res.errors) {
-        setErrors(res.errors);
-      } else {
+      if (res === null) {
         navigate("/gear");
+      } else {
+        setErrors(res.errors);
       }
     });
   };
@@ -39,7 +39,7 @@ export const CreateGear = () => {
   const navigate = useNavigate();
 
   return (
-    <>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
@@ -48,10 +48,11 @@ export const CreateGear = () => {
         ))}
       </div>
       <h2>Add Gear</h2>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
+      <Form onSubmit={handleSubmit} className="flex-form">
+        <FormGroup className="flex-fields">
           <Label for="gearTypeId">Type</Label>
-          <select
+          <Input
+            type="select"
             value={gearTypeId}
             onChange={(e) => setGearTypeId(e.target.value)}
           >
@@ -61,9 +62,10 @@ export const CreateGear = () => {
                 {gt.name}
               </option>
             ))}
-          </select>
+          </Input>
         </FormGroup>
-        <FormGroup>
+
+        <FormGroup className="flex-fields">
           <Label for="model">Model</Label>
           <Input
             type="text"
@@ -72,7 +74,7 @@ export const CreateGear = () => {
             onChange={(e) => setModel(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="purchase-year">Purchase Year</Label>
           <Input
             type="text"
@@ -81,7 +83,7 @@ export const CreateGear = () => {
             onChange={(e) => setPurchaseYear(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="quantity">Quantity</Label>
           <Input
             type="text"
@@ -90,7 +92,7 @@ export const CreateGear = () => {
             onChange={(e) => setQuantity(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="full-width">
           <Label for="serial-number">Serial Number</Label>
           <Input
             type="text"
@@ -99,8 +101,10 @@ export const CreateGear = () => {
             onChange={(e) => setSerialNumber(e.target.value)}
           />
         </FormGroup>
-        <Button type="submit">Add</Button>
+        <Button type="submit" className="full-width">
+          Add
+        </Button>
       </Form>
-    </>
+    </div>
   );
 };

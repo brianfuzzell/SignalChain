@@ -5,9 +5,8 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { getStatuses } from "../../managers/statusManager";
 import { GearUsedOnSong } from "./GearUsedOnSong";
 
-export const SongDetails = ({ loggedInUser }) => {
+export const SongDetails = () => {
   const { id } = useParams();
-  const [songs, setSongs] = useState([]);
   const [song, setSong] = useState(null);
   const [statuses, setStatuses] = useState([]);
   const [formData, setFormData] = useState({
@@ -49,16 +48,16 @@ export const SongDetails = ({ loggedInUser }) => {
     };
 
     updateSong(updatedSong).then((res) => {
-      if (res.errors) {
-        setErrors(res.errors);
-      } else {
+      if (res === null) {
         navigate("/songs");
+      } else {
+        setErrors(res.errors);
       }
     });
   };
 
   return (
-    <>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
@@ -68,8 +67,8 @@ export const SongDetails = ({ loggedInUser }) => {
       </div>
       <h2>Song Details</h2>
       <h4>{song.title}</h4>
-      <Form onSubmit={handleEditSong}>
-        <FormGroup>
+      <Form onSubmit={handleEditSong} className="flex-form">
+        <FormGroup className="flex-fields">
           <Label for="title">Title</Label>
           <Input
             type="text"
@@ -80,7 +79,7 @@ export const SongDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="writer">Writer</Label>
           <Input
             type="text"
@@ -91,7 +90,7 @@ export const SongDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="artist">Artist</Label>
           <Input
             type="text"
@@ -102,7 +101,7 @@ export const SongDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="year-recorded">Year Recorded</Label>
           <Input
             type="text"
@@ -113,9 +112,10 @@ export const SongDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="full-width">
           <Label for="status">Status</Label>
-          <select
+          <Input
+            type="select"
             value={formData.statusId}
             onChange={(e) =>
               setFormData({ ...formData, statusId: e.target.value })
@@ -127,11 +127,13 @@ export const SongDetails = ({ loggedInUser }) => {
                 {s.name}
               </option>
             ))}
-          </select>
+          </Input>
         </FormGroup>
-        <Button type="submit">Update</Button>
+        <Button type="submit" className="full-width">
+          Update
+        </Button>
       </Form>
       <GearUsedOnSong song={song} />
-    </>
+    </div>
   );
 };

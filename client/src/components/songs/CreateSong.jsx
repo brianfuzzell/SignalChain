@@ -30,16 +30,16 @@ export const CreateSong = () => {
     };
 
     createSong(newSong).then((res) => {
-      if (res.errors) {
-        setErrors(res.errors);
-      } else {
+      if (res === null) {
         navigate("/songs");
+      } else {
+        setErrors(res.errors);
       }
     });
   };
 
   return (
-    <>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
@@ -48,8 +48,8 @@ export const CreateSong = () => {
         ))}
       </div>
       <h2>Add a Song</h2>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
+      <Form onSubmit={handleSubmit} className="flex-form">
+        <FormGroup className="flex-fields">
           <Label for="title">Title</Label>
           <Input
             type="text"
@@ -58,7 +58,7 @@ export const CreateSong = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="writer">Writer</Label>
           <Input
             type="text"
@@ -67,7 +67,7 @@ export const CreateSong = () => {
             onChange={(e) => setWriter(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="artist">Artist</Label>
           <Input
             type="text"
@@ -76,7 +76,7 @@ export const CreateSong = () => {
             onChange={(e) => setArtist(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="year-recorded">Year Recorded</Label>
           <Input
             type="text"
@@ -85,9 +85,10 @@ export const CreateSong = () => {
             onChange={(e) => SetYearRecorded(e.target.value)}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="flex-fields">
           <Label for="status">Status</Label>
-          <select
+          <Input
+            type="select"
             value={statusId}
             onChange={(e) => setStatusId(e.target.value)}
           >
@@ -97,10 +98,12 @@ export const CreateSong = () => {
                 {s.name}
               </option>
             ))}
-          </select>
+          </Input>
         </FormGroup>
-        <Button type="submit">Add</Button>
+        <Button type="submit" className="full-width">
+          Add
+        </Button>
       </Form>
-    </>
+    </div>
   );
 };

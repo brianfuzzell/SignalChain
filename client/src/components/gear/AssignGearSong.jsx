@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { assignSongToGear } from "../../managers/gearManager";
 import { getSongs } from "../../managers/songManager";
-import { Button } from "reactstrap";
+import { Button, Input } from "reactstrap";
 import { useParams } from "react-router-dom";
 
 export const AssignGearSong = ({ getGearDetails }) => {
@@ -27,10 +27,11 @@ export const AssignGearSong = ({ getGearDetails }) => {
   return (
     <>
       <h3>Assign Song to this Gear</h3>
-      <div>
-        <select
+      <div className="flex-form">
+        <Input type="select"
           value={selectedSongId}
           onChange={(e) => setSelectedSongId(e.target.value)}
+          className="assign-dropdown"
         >
           <option value="">Assign Song</option>
           {songs.map((s) => (
@@ -38,9 +39,9 @@ export const AssignGearSong = ({ getGearDetails }) => {
               {s.title}
             </option>
           ))}
-        </select>
+        </Input>
+        <Button onClick={() => handleAssignSong()}>Assign</Button>
       </div>
-      <Button onClick={() => handleAssignSong()}>Assign</Button>
     </>
   );
 };

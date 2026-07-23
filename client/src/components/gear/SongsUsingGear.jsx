@@ -12,7 +12,7 @@ export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
   };
 
   return (
-    <>
+    <div className="container-padding">
       <h3>Songs Using This Gear</h3>
       <Table>
         <tbody>
@@ -21,7 +21,7 @@ export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
               <td scope="row">{song.title}</td>
               <td>
                 {loggedInUser.roles.includes("Admin") ? (
-                  <Button onClick={() => handleRemoveSong(id, song.id)}>
+                  <Button outline onClick={() => handleRemoveSong(id, song.id)}>
                     Remove
                   </Button>
                 ) : (
@@ -32,6 +32,6 @@ export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
