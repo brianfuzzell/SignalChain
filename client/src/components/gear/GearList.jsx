@@ -19,7 +19,7 @@ export const GearList = ({ loggedInUser }) => {
   };
 
   return (
-    <div className="container container-padding" style={{ maxWidth: "800px" }}>
+    <div className="container container-padding table-responsive" style={{ maxWidth: "700px" }}>
       <h2>Studio Gear</h2>
       <div>
         <Link to="/gear/create">

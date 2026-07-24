@@ -39,7 +39,7 @@ export const CreateSong = () => {
   };
 
   return (
-    <div className="container container-padding" style={{ maxWidth: "800px" }}>
+    <div className="container container-padding" style={{ maxWidth: "700px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
