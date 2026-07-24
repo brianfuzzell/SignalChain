@@ -27,8 +27,17 @@ public class SongController : ControllerBase
     [Authorize]
     public IActionResult Get()
     {
+        var identityUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == identityUserId);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
         List<Song> songs = _dbContext
             .Songs
+            .Where(s => s.UserProfileId == profile.Id)
             .Include(s => s.Status)
             .Include(s => s.GearSongs)
             .OrderBy(s => s.Title)
@@ -43,13 +52,21 @@ public class SongController : ControllerBase
     [Authorize]
     public IActionResult GetById(int id)
     {
+        var identityUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == identityUserId);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+        
         Song? song = _dbContext
             .Songs
             .Include(s => s.Status)
             .Include(s => s.GearSongs)
                 .ThenInclude(gs => gs.Gear)
                     .ThenInclude(g => g.GearType)
-            .SingleOrDefault(s => s.Id == id);
+            .SingleOrDefault(s => s.Id == id && s.UserProfileId == profile.Id);
 
         if (song == null)
         {
@@ -105,7 +122,17 @@ public class SongController : ControllerBase
     [Authorize]
     public IActionResult UpdateSong(UpdateSongDTO song, int id)
     {
-        Song? songToUpdate = _dbContext.Songs.SingleOrDefault(s => s.Id == id);
+        var identityUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == identityUserId);
+        
+        if (profile == null)
+        {
+            return NotFound();
+        }
+        
+        Song? songToUpdate = _dbContext.Songs
+        .SingleOrDefault(s => s.Id == id && s.UserProfileId == profile.Id);
+
         if (songToUpdate == null)
         {
             return NotFound();
@@ -126,7 +153,17 @@ public class SongController : ControllerBase
     [Authorize(Roles = "Admin")]
     public IActionResult DeleteSong(int id)
     {
-        Song? songToDelete = _dbContext.Songs.SingleOrDefault(s => s.Id == id);
+        var identityUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == identityUserId);
+        
+        if (profile == null)
+        {
+            return NotFound();
+        }
+        
+        Song? songToDelete = _dbContext.Songs
+        .SingleOrDefault(s => s.Id == id && s.UserProfileId == profile.Id);
+        
         if (songToDelete == null)
         {
             return NotFound();

@@ -42,6 +42,14 @@ public class GearController : ControllerBase
     [Authorize]
     public IActionResult GetById(int id)
     {
+        var identityUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == identityUserId);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
         Gear? gear = _dbContext
             .Gears
             .Include(g => g.GearType)
@@ -58,6 +66,7 @@ public class GearController : ControllerBase
         GearDTO gearDTO = _mapper.Map<GearDTO>(gear);
 
         gearDTO.SongsUsingGear = gear.GearSongs
+            .Where(gs => gs.Song.UserProfileId == profile.Id)
             .Select(gs => new BasicSongDTO
             {
                 Id = gs.SongId,
@@ -146,7 +155,7 @@ public class GearController : ControllerBase
         {
             return NotFound();
         }
-        
+
         bool isDuplicateSong = _dbContext.GearSongs.Any(gs => gs.GearId == id && gs.SongId == newGearSong.SongId);
         if (isDuplicateSong)
         {
