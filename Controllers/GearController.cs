@@ -146,6 +146,12 @@ public class GearController : ControllerBase
         {
             return NotFound();
         }
+        
+        bool isDuplicateSong = _dbContext.GearSongs.Any(gs => gs.GearId == id && gs.SongId == newGearSong.SongId);
+        if (isDuplicateSong)
+        {
+            return BadRequest("Song is already assigned to this gear");
+        }
 
         _dbContext.GearSongs.Add(new GearSong
         {

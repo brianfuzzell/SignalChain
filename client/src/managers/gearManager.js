@@ -56,6 +56,12 @@ export const assignSongToGear = (id, newGearSong) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newGearSong),
+  }).then((res) => {
+    if (res.ok) {
+      return null;
+    } else {
+      return res.text();
+    }
   });
 };
 
