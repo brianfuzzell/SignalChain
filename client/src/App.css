@@ -17,6 +17,43 @@
   }
 }
 
+.flex-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-fields {
+  flex-basis: 48%;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+.flex-fields select {
+  width: 100%;
+}
+
+.full-width {
+  flex-basis: 100%;
+}
+
+select.assign-dropdown {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.container-padding {
+  padding: 2rem 0;
+}
+
+.delete-btn:hover {
+  color: var(--col-5);
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  transform: scale(1.15)
+}
+
 .hero {
   position: relative;
 
@@ -167,7 +204,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -4.5px;
     border: 5px solid transparent;
