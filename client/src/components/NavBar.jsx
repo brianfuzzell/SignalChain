@@ -41,7 +41,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                 </NavItem>
               </Nav>
             </Collapse>
-           {/*  {loggedInUser.roles.include("Admin") && (
+           {/* {loggedInUser.roles.include("Admin") && (
               <NavbarText style={{ marginRight: "4px" }}>
                 Studio Inventory: {inventory}
               </NavbarText>
