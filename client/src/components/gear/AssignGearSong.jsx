@@ -8,6 +8,7 @@ export const AssignGearSong = ({ getGearDetails }) => {
   const { id } = useParams();
   const [songs, setSongs] = useState([]);
   const [selectedSongId, setSelectedSongId] = useState("");
+  const [errors, setErrors] = useState("");
 
   useEffect(() => {
     getSongs().then(setSongs);
@@ -18,17 +19,25 @@ export const AssignGearSong = ({ getGearDetails }) => {
       SongId: selectedSongId,
     };
 
-    assignSongToGear(id, newGearSong).then(() => {
-      setSelectedSongId("");
-      getGearDetails(id);
+    assignSongToGear(id, newGearSong).then((res) => {
+      if (res === null) {
+        setSelectedSongId("");
+        getGearDetails(id);
+      } else {
+        setErrors(res);
+      }
     });
   };
 
   return (
     <>
       <h3>Assign Song to this Gear</h3>
+      <p style={{ color: "red" }} hidden={!errors}>
+        {errors}
+      </p>
       <div className="flex-form">
-        <Input type="select"
+        <Input
+          type="select"
           value={selectedSongId}
           onChange={(e) => setSelectedSongId(e.target.value)}
           className="assign-dropdown"

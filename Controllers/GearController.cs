@@ -61,7 +61,8 @@ public class GearController : ControllerBase
             .Select(gs => new BasicSongDTO
             {
                 Id = gs.SongId,
-                Title = gs.Song.Title
+                Title = gs.Song.Title,
+                GearSongId = gs.Id
             })
             .ToList();
 
@@ -120,11 +121,11 @@ public class GearController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id}/songs/{songId}")]
+    [HttpDelete("songs/{gearSongId}")]
     [Authorize(Roles = "Admin")]
-    public IActionResult RemoveSong(int id, int songId)
+    public IActionResult RemoveSong(int gearSongId)
     {
-        GearSong? songToRemove = _dbContext.GearSongs.SingleOrDefault(gs => gs.GearId == id && gs.SongId == songId);
+        GearSong? songToRemove = _dbContext.GearSongs.SingleOrDefault(gs => gs.Id == gearSongId);
         if (songToRemove == null)
         {
             return NotFound();
@@ -144,6 +145,12 @@ public class GearController : ControllerBase
         if (gearToAssign == null)
         {
             return NotFound();
+        }
+        
+        bool isDuplicateSong = _dbContext.GearSongs.Any(gs => gs.GearId == id && gs.SongId == newGearSong.SongId);
+        if (isDuplicateSong)
+        {
+            return BadRequest("Song is already assigned to this gear");
         }
 
         _dbContext.GearSongs.Add(new GearSong
