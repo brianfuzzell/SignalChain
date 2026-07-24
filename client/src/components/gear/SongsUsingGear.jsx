@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
   const { id } = useParams();
 
-  const handleRemoveSong = (id, songId) => {
-    removeSongFromGear(id, songId).then(() => {
+  const handleRemoveSong = (gearSongId) => {
+    removeSongFromGear(gearSongId).then(() => {
       getGearDetails(id);
     });
   };
@@ -21,7 +21,7 @@ export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
               <td scope="row">{song.title}</td>
               <td>
                 {loggedInUser.roles.includes("Admin") ? (
-                  <Button outline onClick={() => handleRemoveSong(id, song.id)}>
+                  <Button outline onClick={() => handleRemoveSong(song.gearSongId)}>
                     Remove
                   </Button>
                 ) : (
