@@ -44,6 +44,7 @@ export const SongDetails = () => {
     const updatedSong = {
       ...formData,
       statusId: parseInt(formData.statusId),
+      yearRecorded: parseInt(formData.yearRecorded),
       id,
     };
 
