@@ -51,7 +51,158 @@ select.assign-dropdown {
   color: var(--col-5);
   cursor: pointer;
   transition: all 0.15s ease-out;
-  transform: scale(1.15)
+  transform: scale(1.15);
+}
+
+.gear-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gear-header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.gear-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: solid 1px #d6d6d6;
+  border-radius: 15px;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.specs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  margin: 0;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.gear-col-lrg {
+  display: flex;
+  flex-basis: 32%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gear-col-sm {
+  display: flex;
+  flex-basis: 15%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*  typically the label gets a smaller font-size, muted/lighter color, and maybe text-transform: uppercase with some letter-spacing for that classic "table header, but small" look */
+/* .field-label {
+
+} */
+
+/* .field-value {
+ value stays your normal text size/color
+} */
+
+.row-actions {
+  display: flex;
+  flex-basis: 15%;
+  margin-left: auto;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+
+  @media only screen and (max-width: 500px) {
+    margin: auto;
+  }
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.song-header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  border-bottom: solid 1px #d6d6d6;
+
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.song-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border-bottom: solid 1px #d6d6d6;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.song-col-lrg {
+  display: flex;
+  flex-basis: 65%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.song-col-sm {
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hdr-btn-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+}
+
+.hdr-btn-h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @media only screen and (max-width: 500px) {
+    position: static;
+    transform: none;
+  }
+}
+
+.hdr-btn {
+  margin-left: auto;
+
+  @media only screen and (max-width: 500px) {
+    margin-left: 0;
+  }
 }
 
 .hero {
