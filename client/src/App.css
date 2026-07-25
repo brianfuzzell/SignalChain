@@ -51,7 +51,99 @@ select.assign-dropdown {
   color: var(--col-5);
   cursor: pointer;
   transition: all 0.15s ease-out;
-  transform: scale(1.15)
+  transform: scale(1.15);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gear-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: solid 1px #d6d6d6;
+  border-radius: 15px;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  margin: 0;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.row-item-lrg {
+  display: flex;
+  flex-basis: 25%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row-item-sm {
+  display: flex;
+  flex-basis: 15%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/*  typically the label gets a smaller font-size, muted/lighter color, and maybe text-transform: uppercase with some letter-spacing for that classic "table header, but small" look */
+/* .field-label {
+
+} */
+
+/* .field-value {
+ value stays your normal text size/color
+} */
+
+.row-actions {
+  display: flex;
+  flex-basis: 15%;
+  margin-left: auto;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+
+  @media only screen and (max-width: 500px) {
+    margin: auto;
+  }
+}
+
+.song-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border-bottom: solid 1px #d6d6d6;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.song-row-item-lrg {
+  display: flex;
+  flex-basis: 65%;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.song-row-item-sm {
+  display: flex;
+  flex-basis: 15%;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .hero {

@@ -19,35 +19,39 @@ export const GearList = ({ loggedInUser }) => {
   };
 
   return (
-    <div className="container container-padding table-responsive" style={{ maxWidth: "700px" }}>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <h2>Studio Gear</h2>
       <div>
         <Link to="/gear/create">
           <Button>+Add Gear</Button>
         </Link>
       </div>
-      <Table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Model</th>
-            <th>Purchase Year</th>
-            <th>Quantity</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {gears.map((g) => (
-            <tr key={g.id}>
-              <td scope="row">{g.gearType.name}</td>
-              <td>{g.model}</td>
-              <td>{g.purchaseYear}</td>
-              <td>{g.quantity}</td>
-              <td>
+      <div className="list">
+        {gears.map((g) => (
+          <div className="gear-item" key={g.id}>
+            <dl className="row">
+              <div className="row-item-lrg">
+                <dt>Type</dt>
+                <dd>{g.gearType.name}</dd>
+              </div>
+              <div className="row-item-lrg">
+                <dt>Model</dt>
+                <dd>{g.model}</dd>
+              </div>
+              <div className="row-item-sm">
+                <dt>Purchase Year</dt>
+                <dd>{g.purchaseYear}</dd>
+              </div>
+              <div className="row-item-sm">
+                <dt>Quantity</dt>
+                <dd>{g.quantity}</dd>
+              </div>
+            </dl>
+            <div className="row-actions">
+              <div>
                 <Link to={`/gear/${g.id}`}>Details</Link>
-              </td>
-              <td>
+              </div>
+              <div>
                 {loggedInUser.roles.includes("Admin") ? (
                   <FontAwesomeIcon
                     className="delete-btn"
@@ -58,11 +62,11 @@ export const GearList = ({ loggedInUser }) => {
                 ) : (
                   ""
                 )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
