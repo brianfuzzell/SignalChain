@@ -19,31 +19,53 @@ export const SongList = ({ loggedInUser }) => {
   };
 
   return (
-    <div className="container container-padding table-responsive" style={{ maxWidth: "700px" }}>
-      <h2>Songs in Production</h2>
-      <div>
-        <Link to="/songs/create">
-          <Button>+Add Song</Button>
-        </Link>
+    <div className="container container-padding" style={{ maxWidth: "700px" }}>
+      <div className="hdr-btn-wrapper">
+        <div className="hdr-btn-h2">
+          <h2>Songs in Production</h2>
+        </div>
+        <div className="hdr-btn">
+          <Link to="/songs/create">
+            <Button>+Add Song</Button>
+          </Link>
+        </div>
       </div>
-      <Table>
-        <thead>
-          <tr>
-            <th>Song</th>
-            <th>Status</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {songs.map((s) => (
-            <tr key={s.id}>
-              <td scope="row">{s.title}</td>
-              <td>{s.status.name}</td>
-              <td>
+      <div className="song-list">
+        <div className="song-header">
+          <dl className="specs">
+            <div className="song-col-lrg">
+              <dt>Song</dt>
+              <dd></dd>
+            </div>
+            <div className="song-col-sm">
+              <dt>Status</dt>
+              <dd></dd>
+            </div>
+          </dl>
+          <div className="row-actions">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div className="song-list">
+        {songs.map((s) => (
+          <div className="song-row" key={s.id}>
+            <dl className="specs">
+              <div className="song-col-lrg">
+                <dt></dt>
+                <dd>{s.title}</dd>
+              </div>
+              <div className="song-col-sm">
+                <dt></dt>
+                <dd>{s.status.name}</dd>
+              </div>
+            </dl>
+            <div className="row-actions">
+              <div>
                 <Link to={`/songs/${s.id}`}>Details</Link>
-              </td>
-              <td>
+              </div>
+              <div>
                 {loggedInUser.roles.includes("Admin") &&
                 s.status.name != "Released" ? (
                   <FontAwesomeIcon
@@ -55,11 +77,11 @@ export const SongList = ({ loggedInUser }) => {
                 ) : (
                   ""
                 )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
