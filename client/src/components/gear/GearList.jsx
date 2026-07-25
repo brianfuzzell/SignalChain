@@ -20,11 +20,15 @@ export const GearList = ({ loggedInUser }) => {
 
   return (
     <div className="container container-padding" style={{ maxWidth: "800px" }}>
-      <h2>Studio Gear</h2>
-      <div>
-        <Link to="/gear/create">
-          <Button>+Add Gear</Button>
-        </Link>
+      <div className="hdr-btn-wrapper">
+        <div className="hdr-btn-h2">
+          <h2>Studio Gear</h2>
+        </div>
+        <div className="hdr-btn">
+          <Link to="/gear/create">
+            <Button>+Add Gear</Button>
+          </Link>
+        </div>
       </div>
       <div className="gear-list">
         <div className="gear-header">

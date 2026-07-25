@@ -97,7 +97,7 @@ select.assign-dropdown {
 
 .gear-col-lrg {
   display: flex;
-  flex-basis: 25%;
+  flex-basis: 32%;
   flex-direction: column;
   gap: 10px;
 }
@@ -168,9 +168,41 @@ select.assign-dropdown {
 
 .song-col-sm {
   display: flex;
-  flex-basis: 15%;
+  flex-basis: 20%;
   flex-direction: column;
   gap: 10px;
+}
+
+.hdr-btn-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+}
+
+.hdr-btn-h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  @media only screen and (max-width: 500px) {
+    position: static;
+    transform: none;
+  }
+}
+
+.hdr-btn {
+  margin-left: auto;
+
+  @media only screen and (max-width: 500px) {
+    margin-left: 0;
+  }
 }
 
 .hero {
