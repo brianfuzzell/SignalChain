@@ -26,24 +26,50 @@ export const GearList = ({ loggedInUser }) => {
           <Button>+Add Gear</Button>
         </Link>
       </div>
-      <div className="list">
+      <div className="gear-list">
+        <div className="gear-header">
+          <dl className="specs">
+            <div className="gear-col-lrg">
+              <dt>Type</dt>
+              <dd></dd>
+            </div>
+            <div className="gear-col-lrg">
+              <dt>Model</dt>
+              <dd></dd>
+            </div>
+            <div className="gear-col-sm">
+              <dt>Purchase Year</dt>
+              <dd></dd>
+            </div>
+            <div className="gear-col-sm">
+              <dt>Quantity</dt>
+              <dd></dd>
+            </div>
+          </dl>
+          <div className="row-actions">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div className="gear-list">
         {gears.map((g) => (
-          <div className="gear-item" key={g.id}>
-            <dl className="row">
-              <div className="row-item-lrg">
-                <dt>Type</dt>
+          <div className="gear-row" key={g.id}>
+            <dl className="specs">
+              <div className="gear-col-lrg">
+                <dt></dt>
                 <dd>{g.gearType.name}</dd>
               </div>
-              <div className="row-item-lrg">
-                <dt>Model</dt>
+              <div className="gear-col-lrg">
+                <dt></dt>
                 <dd>{g.model}</dd>
               </div>
-              <div className="row-item-sm">
-                <dt>Purchase Year</dt>
+              <div className="gear-col-sm">
+                <dt></dt>
                 <dd>{g.purchaseYear}</dd>
               </div>
-              <div className="row-item-sm">
-                <dt>Quantity</dt>
+              <div className="gear-col-sm">
+                <dt></dt>
                 <dd>{g.quantity}</dd>
               </div>
             </dl>

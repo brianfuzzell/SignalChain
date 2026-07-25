@@ -26,16 +26,34 @@ export const SongList = ({ loggedInUser }) => {
           <Button>+Add Song</Button>
         </Link>
       </div>
-      <div className="list">
+      <div className="song-list">
+        <div className="song-header">
+          <dl className="specs">
+            <div className="song-col-lrg">
+              <dt>Song</dt>
+              <dd></dd>
+            </div>
+            <div className="song-col-sm">
+              <dt>Status</dt>
+              <dd></dd>
+            </div>
+          </dl>
+          <div className="row-actions">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div className="song-list">
         {songs.map((s) => (
-          <div className="song-item" key={s.id}>
-            <dl className="row">
-              <div className="song-row-item-lrg">
-                <dt>Song</dt>
+          <div className="song-row" key={s.id}>
+            <dl className="specs">
+              <div className="song-col-lrg">
+                <dt></dt>
                 <dd>{s.title}</dd>
               </div>
-              <div className="song-row-item-sm">
-                <dt>Status</dt>
+              <div className="song-col-sm">
+                <dt></dt>
                 <dd>{s.status.name}</dd>
               </div>
             </dl>

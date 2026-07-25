@@ -54,13 +54,23 @@ select.assign-dropdown {
   transform: scale(1.15);
 }
 
-.list {
+.gear-list {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.gear-item {
+.gear-header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.gear-row {
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -72,7 +82,7 @@ select.assign-dropdown {
   }
 }
 
-.row {
+.specs {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -85,14 +95,14 @@ select.assign-dropdown {
   }
 }
 
-.row-item-lrg {
+.gear-col-lrg {
   display: flex;
   flex-basis: 25%;
   flex-direction: column;
   gap: 10px;
 }
 
-.row-item-sm {
+.gear-col-sm {
   display: flex;
   flex-basis: 15%;
   flex-direction: column;
@@ -121,7 +131,24 @@ select.assign-dropdown {
   }
 }
 
-.song-item {
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.song-header {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  border-bottom: solid 1px #d6d6d6;
+
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
+}
+
+.song-row {
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -132,14 +159,14 @@ select.assign-dropdown {
   }
 }
 
-.song-row-item-lrg {
+.song-col-lrg {
   display: flex;
   flex-basis: 65%;
   flex-direction: column;
   gap: 10px;
 }
 
-.song-row-item-sm {
+.song-col-sm {
   display: flex;
   flex-basis: 15%;
   flex-direction: column;
