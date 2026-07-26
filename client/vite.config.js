@@ -17,5 +17,9 @@ return {
     outDir: "build",
     },
     plugins: [react()],
+    test: {
+        globals: true,
+        environment: 'jsdom'
+    }
 };
 });
