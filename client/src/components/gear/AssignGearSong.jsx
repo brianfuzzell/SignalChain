@@ -23,6 +23,7 @@ export const AssignGearSong = ({ getGearDetails }) => {
       if (res === null) {
         setSelectedSongId("");
         getGearDetails(id);
+        setErrors("");
       } else {
         setErrors(res);
       }
