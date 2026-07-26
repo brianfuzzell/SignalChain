@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { createGear } from "../../managers/gearManager";
 import { getGearTypes } from "../../managers/gearTypeManager";
 
-export const CreateGear = () => {
+export const CreateGear = ({ getInventory }) => {
   const [gearTypeId, setGearTypeId] = useState("");
   const [model, setModel] = useState("");
   const [purchaseYear, setPurchaseYear] = useState("");
@@ -29,6 +29,7 @@ export const CreateGear = () => {
 
     createGear(newGear).then((res) => {
       if (res === null) {
+        getInventory();
         navigate("/gear");
       } else {
         setErrors(res.errors);

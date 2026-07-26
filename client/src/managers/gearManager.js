@@ -71,3 +71,13 @@ export const deleteGear = (id) => {
     headers: { "Content-Type": "application/json" },
   });
 };
+
+export const getGearInventoryCount = () => {
+  return fetch(`${_apiUrl}/inventory`).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return null;
+    }
+  });
+};

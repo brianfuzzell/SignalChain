@@ -5,9 +5,11 @@ import { tryGetLoggedInUser } from "./managers/authManager";
 import { Spinner } from "reactstrap";
 import NavBar from "./components/NavBar";
 import ApplicationViews from "./components/ApplicationViews";
+import { getGearInventoryCount } from "./managers/gearManager";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState();
+  const [inventory, setInventory] = useState(0);
 
   useEffect(() => {
     // user will be null if not authenticated
@@ -16,6 +18,16 @@ function App() {
     });
   }, []);
 
+  const getInventory = () => {
+    getGearInventoryCount().then(setInventory);
+  };
+
+  useEffect(() => {
+    if (loggedInUser && loggedInUser.roles.includes("Admin")) {
+      getInventory();
+    }
+  }, [loggedInUser]);
+
   // wait to get a definite logged-in state before rendering
   if (loggedInUser === undefined) {
     return <Spinner />;
@@ -23,10 +35,15 @@ function App() {
 
   return (
     <>
-      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
+      <NavBar
+        loggedInUser={loggedInUser}
+        setLoggedInUser={setLoggedInUser}
+        inventory={inventory}
+      />
       <ApplicationViews
         loggedInUser={loggedInUser}
         setLoggedInUser={setLoggedInUser}
+        getInventory={getInventory}
       />
     </>
   );
