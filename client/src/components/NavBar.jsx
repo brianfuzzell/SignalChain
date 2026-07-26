@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink as RRNavLink } from "react-router-dom";
 import {
   Button,
@@ -13,7 +13,7 @@ import {
 } from "reactstrap";
 import { logout } from "../managers/authManager";
 
-export default function NavBar({ loggedInUser, setLoggedInUser }) {
+export default function NavBar({ loggedInUser, setLoggedInUser, inventory }) {
   const [open, setOpen] = useState(false);
 
   const toggleNavbar = () => setOpen(!open);
@@ -41,11 +41,11 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                 </NavItem>
               </Nav>
             </Collapse>
-           {/* {loggedInUser.roles.include("Admin") && (
+            {loggedInUser.roles.includes("Admin") && (
               <NavbarText style={{ marginRight: "4px" }}>
                 Studio Inventory: {inventory}
               </NavbarText>
-            )} */}
+            )}
             <Button
               color="primary"
               onClick={(e) => {

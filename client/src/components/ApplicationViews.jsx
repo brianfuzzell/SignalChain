@@ -9,7 +9,11 @@ import { GearDetails } from "./gear/GearDetails";
 import { CreateGear } from "./gear/CreateGear";
 import { SongDetails } from "./songs/SongDetails";
 
-export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
+export default function ApplicationViews({
+  loggedInUser,
+  setLoggedInUser,
+  getInventory,
+}) {
   return (
     <Routes>
       <Route path="/">
@@ -26,7 +30,10 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             index
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
-                <GearList loggedInUser={loggedInUser} />
+                <GearList
+                  loggedInUser={loggedInUser}
+                  getInventory={getInventory}
+                />
               </AuthorizedRoute>
             }
           />
@@ -34,11 +41,11 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             path="create"
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>
-                <CreateGear />
+                <CreateGear getInventory={getInventory} />
               </AuthorizedRoute>
             }
           />
-           <Route
+          <Route
             path=":id"
             element={
               <AuthorizedRoute loggedInUser={loggedInUser}>

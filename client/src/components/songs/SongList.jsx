@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteSong, getSongs } from "../../managers/songManager";
 import { Link } from "react-router-dom";
-import { Button, Table } from "reactstrap";
+import { Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
