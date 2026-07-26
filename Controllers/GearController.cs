@@ -188,4 +188,13 @@ public class GearController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet("inventory")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult Inventory()
+    {
+        int inventory = _dbContext.Gears.Count();
+
+        return Ok(inventory);
+    }
 }

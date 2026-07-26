@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Button, Table } from "reactstrap";
+import { Button } from "reactstrap";
 import { deleteGear, getGears } from "../../managers/gearManager";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
-export const GearList = ({ loggedInUser }) => {
+export const GearList = ({ loggedInUser, getInventory }) => {
   const [gears, setGears] = useState([]);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ export const GearList = ({ loggedInUser }) => {
   const handleDeleteGear = (id) => {
     deleteGear(id).then(() => {
       getGears().then(setGears);
+      getInventory();
     });
   };
 
