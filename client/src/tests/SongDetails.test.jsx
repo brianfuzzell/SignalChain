@@ -6,6 +6,10 @@ import { SongDetails } from "../components/songs/SongDetails";
 import * as statusManager from "../managers/statusManager";
 import * as songManager from "../managers/songManager";
 
+vi.mock("../components/songs/GearUsedOnSong", () => ({
+  GearUsedOnSong: () => null,
+}));
+
 afterEach(() => {
   vi.restoreAllMocks();
 });
@@ -36,10 +40,8 @@ const renderSongDetails = (loggedInUser = { roles: ["Admin"] }) => {
 
 describe("SongDetails renders", () => {
   it("renders the song details heading and song title", async () => {
-    vi.spyOn(songManager, "getSongs").mockResolvedValue([]);
     vi.spyOn(songManager, "getSongById").mockResolvedValue(fakeSong);
     vi.spyOn(statusManager, "getStatuses").mockResolvedValue([]);
-    vi.spyOn(songManager, "getSongs").mockResolvedValue([]);
 
     renderSongDetails();
 
@@ -50,10 +52,8 @@ describe("SongDetails renders", () => {
   });
 
   it("populates the form fields with the fetched song's data", async () => {
-    vi.spyOn(songManager, "getSongs").mockResolvedValue([]);
     vi.spyOn(songManager, "getSongById").mockResolvedValue(fakeSong);
     vi.spyOn(statusManager, "getStatuses").mockResolvedValue(fakeStatus);
-    vi.spyOn(songManager, "getSongs").mockResolvedValue([]);
 
     const { container } = renderSongDetails();
 
@@ -68,10 +68,9 @@ describe("SongDetails renders", () => {
 
   it("submits the edited form and calls updateSong", async () => {
     const user = userEvent.setup();
-    vi.spyOn(songManager, "getSongs").mockResolvedValue([]);
     vi.spyOn(songManager, "getSongById").mockResolvedValue(fakeSong);
     vi.spyOn(statusManager, "getStatuses").mockResolvedValue(fakeStatus);
-    vi.spyOn(songManager, "getSongs").mockResolvedValue([]);
+
     const updateSpy = vi
       .spyOn(songManager, "updateSong")
       .mockResolvedValue(null);
