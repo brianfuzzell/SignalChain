@@ -1,5 +1,5 @@
 # Introduction
-Thank you for reviewing my final, full-stack capstone project as part of my full-time studies in [Nashville Software School](https://nashvillesoftwareschool.com/)'s Cohort 80. The **Signal Chain** application was developed using C# .Net, React.js, React Bootstrap for styling, and custom CSS for enhanced styling.
+Thank you for reviewing my final, full-stack capstone project as part of my full-time studies in [Nashville Software School](https://nashvillesoftwareschool.com/)'s Cohort 80. The **Signal Chain** application was developed using C# .Net, React.js, React Bootstrap for styling, and custom CSS for enhanced styling. Bonus: I added Vite unit tests to cover the 12 main React components.
 
 ## Problem this solves
 I have a small home studio. If you asked me to provide an inventory list of the instruments and gear I use, it would be a struggle. And when my insurance provider needs me to catalogue everything for my policy, I'll experience unnecessary stress. Others may be in a similar predicament for book and music collections, physical retail stock, or even antiques.
