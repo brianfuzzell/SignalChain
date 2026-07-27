@@ -2,8 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { it, expect, describe, afterEach, vi } from "vitest";
 import { MemoryRouter } from "react-router-dom";
-import { GearList } from "../components/gear/GearList";
-import * as gearManager from "../managers/gearManager";
+import { GearList } from "../src/components/gear/GearList";
+import * as gearManager from "../src/managers/gearManager";
 
 afterEach(() => {
   vi.restoreAllMocks();

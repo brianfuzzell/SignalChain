@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { it, expect, describe, afterEach, vi } from "vitest";
 import { MemoryRouter } from "react-router-dom";
-import Login from "../components/auth/Login";
-import * as authManager from "../managers/authManager";
+import Login from "../src/components/auth/Login";
+import * as authManager from "../src/managers/authManager";
 
 afterEach(() => {
   vi.restoreAllMocks();

@@ -2,10 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { it, expect, describe, afterEach, vi } from "vitest";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { GearDetails } from "../components/gear/GearDetails";
-import * as gearManager from "../managers/gearManager";
-import * as gearTypeManager from "../managers/gearTypeManager";
-import * as songManager from "../managers/songManager";
+import { GearDetails } from "../src/components/gear/GearDetails";
+import * as gearManager from "../src/managers/gearManager";
+import * as gearTypeManager from "../src/managers/gearTypeManager";
+import * as songManager from "../src/managers/songManager";
 
 afterEach(() => {
   vi.restoreAllMocks();

@@ -2,11 +2,11 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { it, expect, describe, afterEach, vi } from "vitest";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { SongDetails } from "../components/songs/SongDetails";
-import * as statusManager from "../managers/statusManager";
-import * as songManager from "../managers/songManager";
+import { SongDetails } from "../src/components/songs/SongDetails";
+import * as statusManager from "../src/managers/statusManager";
+import * as songManager from "../src/managers/songManager";
 
-vi.mock("../components/songs/GearUsedOnSong", () => ({
+vi.mock("../src/components/songs/GearUsedOnSong", () => ({
   GearUsedOnSong: () => null,
 }));
 

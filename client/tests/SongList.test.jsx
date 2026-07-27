@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { it, expect, describe, afterEach, vi } from "vitest";
 import { MemoryRouter } from "react-router-dom";
-import { SongList } from "../components/songs/SongList";
-import * as songManager from "../managers/songManager";
+import { SongList } from "../src/components/songs/SongList";
+import * as songManager from "../src/managers/songManager";
 
 afterEach(() => {
   vi.restoreAllMocks();

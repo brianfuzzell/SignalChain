@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { it, expect, describe } from "vitest";
 import { MemoryRouter } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import NavBar from "../src/components/NavBar";
 
 describe("navbar renders links and button", () => {
   it("renders the brand name", () => {
