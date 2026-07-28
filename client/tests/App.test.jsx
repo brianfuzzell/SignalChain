@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import App from "../src/App";
-import { afterEach, describe, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import * as authManager from "../src/managers/authManager";
 import { MemoryRouter } from "react-router-dom";
 
@@ -16,6 +16,7 @@ describe("app renders", () => {
         <App />
       </MemoryRouter>,
     );
-    await screen.findByText("Signal Chain");
+    const brandLogos = await screen.findAllByRole("img", { name: "Signal Chain" });
+    expect(brandLogos.length).toBeGreaterThan(0);
   });
 });

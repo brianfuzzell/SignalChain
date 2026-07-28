@@ -27,7 +27,7 @@ export default function Login({ setLoggedInUser }) {
       <div>
         <img
           src={logo}
-          alt="Signal Chain Studio Inventory" className="login-logo"
+          alt="Signal Chain" className="login-logo"
         />
         <h4>Studio Inventory</h4>
       </div>
