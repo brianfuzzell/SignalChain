@@ -16,6 +16,7 @@ describe("login renders", () => {
         <Login setLoggedInUser={() => {}} />
       </MemoryRouter>,
     );
+    expect(screen.getByRole("heading", { name: "Studio Inventory" })).not.toBeNull();
     expect(screen.getByRole("heading", { name: "Login" })).not.toBeNull();
     expect(screen.getByRole("textbox")).not.toBeNull();
     expect(container.querySelector('input[type="password"]')).not.toBeNull();

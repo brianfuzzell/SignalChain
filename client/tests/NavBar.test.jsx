@@ -10,7 +10,7 @@ describe("navbar renders links and button", () => {
         <NavBar loggedInUser={null} setLoggedInUser={() => {}} inventory={0} />
       </MemoryRouter>,
     );
-    expect(screen.getByText("Signal Chain")).not.toBeNull();
+    expect(screen.getByRole("img", { name: "Signal Chain" })).not.toBeNull();
   });
 
   it("displays login button for visitors", () => {
