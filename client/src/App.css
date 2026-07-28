@@ -47,6 +47,20 @@ select.assign-dropdown {
   padding: 2rem 0;
 }
 
+.login-logo {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-logo {
+  width: 100%;
+  max-width: 60px;
+  height: auto;
+  object-fit: contain;
+}
+
 .delete-btn:hover {
   color: var(--col-5);
   cursor: pointer;

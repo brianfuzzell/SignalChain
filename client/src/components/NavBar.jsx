@@ -12,6 +12,7 @@ import {
   NavbarText,
 } from "reactstrap";
 import { logout } from "../managers/authManager";
+import navLogo from "../assets/SC_nav_logo.png";
 
 export default function NavBar({ loggedInUser, setLoggedInUser, inventory }) {
   const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser, inventory }) {
     <div>
       <Navbar color="dark" dark fixed="dark" expand="lg">
         <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
-          Signal Chain
+          <img src={navLogo} alt="Signal Chain" className="nav-logo" />
         </NavbarBrand>
         {loggedInUser ? (
           <>
