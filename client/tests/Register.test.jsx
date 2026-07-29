@@ -49,10 +49,19 @@ describe("register renders", () => {
       container.querySelector('input[type="email"]'),
       "test@example.com",
     );
+    await user.type(screen.getByLabelText("User Name"), "testuser1");
+    await user.type(screen.getByLabelText("Address"), "100 Main St.");
     await user.type(screen.getByLabelText("Password"), "password123");
     await user.type(screen.getByLabelText("Confirm Password"), "password123");
     await user.click(screen.getByRole("button", { name: "Register" }));
 
-    expect(registerSpy).toHaveBeenCalledWith("test@example.com", "password123");
+    expect(registerSpy).toHaveBeenCalledWith({
+        firstName: "Test",
+        lastName: "User",
+        address: "100 Main St.",
+        userName: "testuser1",
+        email: "test@example.com",
+        password: "password123"
+    });
   });
 });
