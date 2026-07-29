@@ -45,7 +45,6 @@ describe("register renders", () => {
 
     await user.type(screen.getByLabelText("First Name"), "Test");
     await user.type(screen.getByLabelText("Last Name"), "User");
-    await user.type(screen.getByLabelText("Email"), "test@example.com");
     await user.type(
       container.querySelector('input[type="email"]'),
       "test@example.com",
