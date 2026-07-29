@@ -22,6 +22,7 @@ See screenshots of every page [here](/client/public/screenshots/screenshots.md)
 - Data validation with Data Annotations
 - Role-based access: Owner admin, Client
 - Many-to-many relationship: GearSongs join table
+- Authentication with Identity Framework
 - AutoMapper
 - Interface
 
