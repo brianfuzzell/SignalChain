@@ -27,7 +27,7 @@ export const GearList = ({ loggedInUser, getInventory }) => {
         </div>
         <div className="hdr-btn">
           <Link to="/gear/create">
-            <Button>+Add Gear</Button>
+            <Button outline>+Add Gear</Button>
           </Link>
         </div>
       </div>

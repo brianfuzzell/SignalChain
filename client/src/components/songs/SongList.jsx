@@ -26,7 +26,7 @@ export const SongList = ({ loggedInUser }) => {
         </div>
         <div className="hdr-btn">
           <Link to="/songs/create">
-            <Button>+Add Song</Button>
+            <Button outline>+Add Song</Button>
           </Link>
         </div>
       </div>

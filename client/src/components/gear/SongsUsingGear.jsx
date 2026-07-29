@@ -21,7 +21,7 @@ export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
               <td scope="row">{song.title}</td>
               <td>
                 {loggedInUser.roles.includes("Admin") ? (
-                  <Button outline onClick={() => handleRemoveSong(song.gearSongId)}>
+                  <Button outline color="danger" onClick={() => handleRemoveSong(song.gearSongId)}>
                     Remove
                   </Button>
                 ) : (

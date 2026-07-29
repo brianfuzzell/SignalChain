@@ -8,9 +8,9 @@ body {
   --bg: #16171d;
   --border: #2e303a;
   --code-bg: #1f2028;
-  --accent: #c084fc;
+  --accent: #00c4cc;
   --accent-bg: rgba(192, 132, 252, 0.15);
-  --accent-border: rgba(192, 132, 252, 0.5);
+  --accent-border: #009aa0;
   --social-bg: rgba(47, 48, 58, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
@@ -48,6 +48,14 @@ html {
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-border);
 }
 
 code {

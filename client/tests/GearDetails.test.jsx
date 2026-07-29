@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { it, expect, describe, afterEach, vi } from "vitest";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
@@ -8,6 +8,7 @@ import * as gearTypeManager from "../src/managers/gearTypeManager";
 import * as songManager from "../src/managers/songManager";
 
 afterEach(() => {
+  cleanup();
   vi.restoreAllMocks();
 });
 

@@ -26,6 +26,10 @@ select.assign-dropdown {
 
 .container-padding {
   padding: 2rem 0;
+  
+  @media only screen and (max-width: 500px) {
+    padding: 1.5rem 1rem;
+  }
 }
 
 .login-logo {
@@ -52,13 +56,13 @@ select.assign-dropdown {
 .gear-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .gear-header {
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 40px 0 0 0;
 
   @media only screen and (max-width: 500px) {
     display: none;
@@ -68,9 +72,8 @@ select.assign-dropdown {
 .gear-row {
   display: flex;
   flex-direction: row;
-  padding: 10px;
-  border: solid 1px #d6d6d6;
-  border-radius: 15px;
+  padding: 15px;
+  background-color: #202020;
 
   @media only screen and (max-width: 500px) {
     flex-direction: column;
@@ -104,14 +107,11 @@ select.assign-dropdown {
   gap: 10px;
 }
 
-/*  typically the label gets a smaller font-size, muted/lighter color, and maybe text-transform: uppercase with some letter-spacing for that classic "table header, but small" look */
-/* .field-label {
-
-} */
-
-/* .field-value {
- value stays your normal text size/color
-} */
+dt {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #A5A6A6;
+} 
 
 .row-actions {
   display: flex;
@@ -197,5 +197,47 @@ select.assign-dropdown {
 
   @media only screen and (max-width: 500px) {
     margin-left: 0;
+    padding-top: 20px;
   }
+}
+
+.assign-btn {
+  margin-left: auto;
+}
+
+[data-bs-theme="dark"] .form-select {
+  color: #55595c;
+  --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2355595c' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+  border-color: var(--accent);
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-active-bg: var(--accent);
+  --bs-btn-active-border-color: var(--accent);
+}
+
+[data-bs-theme="dark"] .btn-primary {
+  color: #ffffff;
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-border);
+  --bs-btn-hover-border-color: var(--accent-border);
+  --bs-btn-active-bg: var(--accent);
+  --bs-btn-active-border-color: var(--accent);
+}
+
+[data-bs-theme="dark"] .btn-outline-danger {
+  border-color: #f6523f;
+  --bs-btn-color: #f6523f;
+  --bs-btn-border-color: #f6523f;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #f6523f;
+  --bs-btn-hover-border-color: #f6523f;
+  --bs-btn-active-bg: #f6523f;
+  --bs-btn-active-border-color: #f6523f;
 }
