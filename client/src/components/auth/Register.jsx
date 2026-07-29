@@ -44,7 +44,7 @@ export default function Register({ setLoggedInUser }) {
   };
 
   return (
-    <div className="container" style={{ maxWidth: "500px" }}>
+    <div className="container container-padding" style={{ maxWidth: "500px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
@@ -54,8 +54,9 @@ export default function Register({ setLoggedInUser }) {
       </div>
       <h3>Sign Up</h3>
       <FormGroup>
-        <Label>First Name</Label>
+        <Label htmlFor="firstName">First Name</Label>
         <Input
+          id="firstName"
           type="text"
           value={firstName}
           onChange={(e) => {
@@ -64,8 +65,9 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Last Name</Label>
+        <Label htmlFor="lastName">Last Name</Label>
         <Input
+          id="lastName"
           type="text"
           value={lastName}
           onChange={(e) => {
@@ -74,8 +76,9 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Email</Label>
+        <Label htmlFor="email">Email</Label>
         <Input
+          id="email"
           type="email"
           value={email}
           onChange={(e) => {
@@ -84,8 +87,9 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>User Name</Label>
+        <Label htmlFor="userName">User Name</Label>
         <Input
+          id="userName"
           type="text"
           value={userName}
           onChange={(e) => {
@@ -94,8 +98,9 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Address</Label>
+        <Label htmlFor="address">Address</Label>
         <Input
+          id="address"
           type="text"
           value={address}
           onChange={(e) => {
@@ -104,8 +109,9 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Password</Label>
+        <Label htmlFor="password">Password</Label>
         <Input
+          id="password"
           invalid={passwordMismatch}
           type="password"
           value={password}
@@ -116,8 +122,9 @@ export default function Register({ setLoggedInUser }) {
         />
       </FormGroup>
       <FormGroup>
-        <Label> Confirm Password</Label>
+        <Label htmlFor="confirmPassword">Confirm Password</Label>
         <Input
+          id="confirmPassword"
           invalid={passwordMismatch}
           type="password"
           value={confirmPassword}
@@ -132,15 +139,17 @@ export default function Register({ setLoggedInUser }) {
         Registration Failure
       </p>
       <Button
-        color="primary"
+        color="success"
         onClick={handleSubmit}
         disabled={passwordMismatch}
       >
         Register
       </Button>
-      <p>
-        Already signed up? Log in <Link to="/login">here</Link>
-      </p>
+      <div className="container-padding">
+        <p>
+          Already signed up? Log in <Link to="/login">here</Link>
+        </p>
+      </div>
     </div>
   );
 }

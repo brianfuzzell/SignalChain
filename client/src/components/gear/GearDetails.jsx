@@ -140,7 +140,7 @@ export const GearDetails = ({ loggedInUser }) => {
             }
           />
         </FormGroup>
-        <Button type="submit" className="full-width">
+        <Button color="primary" type="submit" className="full-width">
           Update
         </Button>
       </Form>

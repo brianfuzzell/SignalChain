@@ -50,7 +50,7 @@ export const AssignGearSong = ({ getGearDetails }) => {
             </option>
           ))}
         </Input>
-        <Button onClick={() => handleAssignSong()}>Assign</Button>
+        <Button outline onClick={() => handleAssignSong()} className="assign-btn">Assign</Button>
       </div>
     </>
   );

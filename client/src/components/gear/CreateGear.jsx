@@ -102,7 +102,7 @@ export const CreateGear = ({ getInventory }) => {
             onChange={(e) => setSerialNumber(e.target.value)}
           />
         </FormGroup>
-        <Button type="submit" className="full-width">
+        <Button color="primary" type="submit" className="full-width">
           Add
         </Button>
       </Form>

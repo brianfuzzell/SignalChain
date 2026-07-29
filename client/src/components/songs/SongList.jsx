@@ -19,14 +19,14 @@ export const SongList = ({ loggedInUser }) => {
   };
 
   return (
-    <div className="container container-padding" style={{ maxWidth: "700px" }}>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <div className="hdr-btn-wrapper">
         <div className="hdr-btn-h2">
           <h2>Songs in Production</h2>
         </div>
         <div className="hdr-btn">
           <Link to="/songs/create">
-            <Button>+Add Song</Button>
+            <Button outline>+Add Song</Button>
           </Link>
         </div>
       </div>
@@ -71,7 +71,7 @@ export const SongList = ({ loggedInUser }) => {
                   <FontAwesomeIcon
                     className="delete-btn"
                     icon={faTrashCan}
-                    style={{ color: "#666666" }}
+                    style={{ color: "#585c61" }}
                     onClick={() => handleDeleteSong(s.id)}
                   />
                 ) : (

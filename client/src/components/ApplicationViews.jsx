@@ -21,7 +21,9 @@ export default function ApplicationViews({
           index
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <GearList loggedInUser={loggedInUser} />
+              <GearList
+                loggedInUser={loggedInUser}
+                getInventory={getInventory} />
             </AuthorizedRoute>
           }
         />
