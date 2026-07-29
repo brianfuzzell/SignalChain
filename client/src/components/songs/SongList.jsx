@@ -19,7 +19,7 @@ export const SongList = ({ loggedInUser }) => {
   };
 
   return (
-    <div className="container container-padding" style={{ maxWidth: "700px" }}>
+    <div className="container container-padding" style={{ maxWidth: "800px" }}>
       <div className="hdr-btn-wrapper">
         <div className="hdr-btn-h2">
           <h2>Songs in Production</h2>
