@@ -1,12 +1,32 @@
+![Signal Chain logo](/client/src/assets/SignalChain_logo_600.png "Signal Chain application")
+
 # Introduction
 Thank you for reviewing my final, full-stack capstone project as part of my full-time studies in [Nashville Software School](https://nashvillesoftwareschool.com/)'s Cohort 80. The **Signal Chain** application was developed using C# .Net, React.js, React Bootstrap for styling, and custom CSS for enhanced styling.
 
 ## Problem this solves
-I have a small home studio. If you asked me to provide an inventory list of the instruments and gear I use, it would be a struggle. And when my insurance provider needs me to catalogue everything for my policy, I'll experience unnecessary stress. Others may be in a similar predicament for book and music collections, physical retail stock, or even antiques.
+I have a small home studio. If you asked me to provide an inventory list of the instruments and gear I use, it would be difficult. And then, when I needed to catalogue everything for my insurance policy (which I did), it's a total headache. Others might have a similar predicament for different inventories - book and music collections, physical retail stock, or even antiques.
 
-Signal Chain solves this problem by providing a modern web application to store, update, create, or delete items in my studio inventory. I can view and update an item's details, see a list of songs that use that item, connect additional songs, and add (or remove) more gear items. 
+**Signal Chain** solves my problem by providing a modern web application to store, update, create, or delete items in my studio inventory. I can view and update an item's details, see a list of songs that use that item, connect additional songs, and add more gear items. 
 
-At the same time, Signal Chain connects songs produced to the gear items that were used on each song. I can also see the full list of songs, add or remove songs, and view and update a song's details.
+At the same time, Signal Chain connects songs produced in the studio to gear items that were used on each song. I can also see the full list of songs, add songs, and view and update a song's details.
+
+Admins have extra privileges: remove gear items, remove songs, and view the studio inventory count in the navigation bar.
+
+### Screenshots
+See screenshots of every page [here](/client/public/screenshots/screenshots.md)
+
+### Technical Features
+- Unit Tests
+- Data validation with Data Annotations
+- Role-based access: Owner admin, Client
+- Many-to-many relationship: GearSongs join table
+- AutoMapper
+- Interface
+
+### Installation
+Install Signal Chain locally and get started! Instructions [here](/client/public/installation.md).
+
+---
 
 ### Requirements
 **Data Requirements**
