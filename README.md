@@ -1,7 +1,7 @@
 ![Signal Chain logo](/client/src/assets/SignalChain_logo_600.png "Signal Chain application")
 
 # Introduction
-Thank you for reviewing my final, full-stack capstone project as part of my full-time studies in [Nashville Software School](https://nashvillesoftwareschool.com/)'s Cohort 80. The **Signal Chain** application was developed using C# .Net, React.js, React Bootstrap for styling, and custom CSS for enhanced styling. 
+Thank you for reviewing my final, full-stack capstone project as part of my full-time studies in [Nashville Software School](https://nashvillesoftwareschool.com/)'s Cohort 80. The **Signal Chain** application was developed using C# .Net, React.js, Bootstrap theme [Bootswatch Lux](https://bootswatch.com/lux/) for overall styles, and custom CSS for enhanced styling overrides. 
 
 **Bonus**: I added Vite unit tests to cover the 13 main React components.
 
