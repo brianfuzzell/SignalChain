@@ -22,7 +22,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser, inventory }) {
   return (
     <div>
       <Navbar expand="lg" color="dark" dark>
-        <div className="w-100">
+        <div className="w-100 nav-wrapper">
           <div className="page-container d-flex align-items-center">
             <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
               <img src={navLogo} alt="Signal Chain" className="nav-logo" />
@@ -49,7 +49,9 @@ export default function NavBar({ loggedInUser, setLoggedInUser, inventory }) {
                     Studio Inventory: {inventory}
                   </NavbarText>
                 )}
+
                 <Button
+                  className="nav-login-btn"
                   color="primary" outline
                   onClick={(e) => {
                     e.preventDefault();
@@ -64,7 +66,7 @@ export default function NavBar({ loggedInUser, setLoggedInUser, inventory }) {
                 </Button>
               </>
             ) : (
-              <Nav navbar>
+              <Nav navbar className="nav-login-link">
                 <NavItem>
                   <NavLink tag={RRNavLink} to="/login">
                     <Button color="primary" outline>Login</Button>

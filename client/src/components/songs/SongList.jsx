@@ -71,7 +71,7 @@ export const SongList = ({ loggedInUser }) => {
                   <FontAwesomeIcon
                     className="delete-btn"
                     icon={faTrashCan}
-                    style={{ color: "#666666" }}
+                    style={{ color: "#585c61" }}
                     onClick={() => handleDeleteSong(s.id)}
                   />
                 ) : (

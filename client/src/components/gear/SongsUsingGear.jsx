@@ -17,17 +17,15 @@ export const SongsUsingGear = ({ loggedInUser, getGearDetails, gear }) => {
       <Table>
         <tbody>
           {gear.songsUsingGear.map((song, index) => (
-            <tr key={index}>
+            <tr key={index} className="songs-gear-row">
               <td scope="row">{song.title}</td>
+              {loggedInUser.roles.includes("Admin") && (
               <td>
-                {loggedInUser.roles.includes("Admin") ? (
                   <Button outline color="danger" onClick={() => handleRemoveSong(song.gearSongId)}>
                     Remove
                   </Button>
-                ) : (
-                  ""
-                )}
               </td>
+              )}
             </tr>
           ))}
         </tbody>

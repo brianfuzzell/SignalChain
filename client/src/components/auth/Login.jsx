@@ -59,12 +59,12 @@ export default function Login({ setLoggedInUser }) {
           <FormFeedback>Login failed.</FormFeedback>
         </FormGroup>
 
-        <Button color="primary" onClick={handleSubmit}>
+        <Button color="success" onClick={handleSubmit}>
           Login
         </Button>
-        <p>
+        <div className="container-padding"><p>
           Not signed up? Register <Link to="/register">here</Link>
-        </p>
+        </p></div>
       </div>
     </div>
   );

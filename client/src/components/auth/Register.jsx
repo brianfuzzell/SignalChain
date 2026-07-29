@@ -44,7 +44,7 @@ export default function Register({ setLoggedInUser }) {
   };
 
   return (
-    <div className="container" style={{ maxWidth: "500px" }}>
+    <div className="container container-padding" style={{ maxWidth: "500px" }}>
       <div style={{ color: "red" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
@@ -132,15 +132,17 @@ export default function Register({ setLoggedInUser }) {
         Registration Failure
       </p>
       <Button
-        color="primary"
+        color="success"
         onClick={handleSubmit}
         disabled={passwordMismatch}
       >
         Register
       </Button>
-      <p>
-        Already signed up? Log in <Link to="/login">here</Link>
-      </p>
+      <div className="container-padding">
+        <p>
+          Already signed up? Log in <Link to="/login">here</Link>
+        </p>
+      </div>
     </div>
   );
 }
