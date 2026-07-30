@@ -33,7 +33,7 @@ export const AssignGearSong = ({ getGearDetails }) => {
   return (
     <>
       <h3>Assign Song to this Gear</h3>
-      <p style={{ color: "red" }} hidden={!errors}>
+      <p style={{ color: "#f6523f" }} hidden={!errors}>
         {errors}
       </p>
       <div className="flex-form">
