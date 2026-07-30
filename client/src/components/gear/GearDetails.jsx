@@ -84,6 +84,7 @@ export const GearDetails = ({ loggedInUser }) => {
           <Input
             type="select"
             value={formData.gearTypeId}
+            required
             onChange={(e) =>
               setFormData({ ...formData, gearTypeId: e.target.value })
             }
@@ -102,6 +103,7 @@ export const GearDetails = ({ loggedInUser }) => {
             type="text"
             value={formData.model}
             id="model"
+            required
             onChange={(e) =>
               setFormData({ ...formData, model: e.target.value })
             }
@@ -110,9 +112,10 @@ export const GearDetails = ({ loggedInUser }) => {
         <FormGroup className="flex-fields">
           <Label for="purchase-year">Purchase Year</Label>
           <Input
-            type="text"
+            type="number"
             value={formData.purchaseYear}
             id="purchase-year"
+            required
             onChange={(e) =>
               setFormData({ ...formData, purchaseYear: e.target.value })
             }
@@ -121,9 +124,10 @@ export const GearDetails = ({ loggedInUser }) => {
         <FormGroup className="flex-fields">
           <Label for="quantity">Quantity</Label>
           <Input
-            type="text"
+            type="number"
             value={formData.quantity}
             id="quantity"
+            required
             onChange={(e) =>
               setFormData({ ...formData, quantity: e.target.value })
             }
