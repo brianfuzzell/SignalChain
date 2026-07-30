@@ -59,7 +59,7 @@ export const SongDetails = () => {
 
   return (
     <div className="container container-padding" style={{ maxWidth: "700px" }}>
-      <div style={{ color: "red" }}>
+      <div style={{ color: "#f6523f" }}>
         {Object.keys(errors).map((key) => (
           <p key={key}>
             {key}: {errors[key].join(",")}
