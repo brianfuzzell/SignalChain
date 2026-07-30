@@ -135,7 +135,7 @@ export default function Register({ setLoggedInUser }) {
         />
         <FormFeedback>Passwords do not match!</FormFeedback>
       </FormGroup>
-      <p style={{ color: "red" }} hidden={!registrationFailure}>
+      <p style={{ color: "#f6523f" }} hidden={!registrationFailure}>
         Registration Failure
       </p>
       <Button
