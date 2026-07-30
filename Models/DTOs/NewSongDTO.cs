@@ -12,6 +12,7 @@ public class NewSongDTO
     [Required]
     [MaxLength(50, ErrorMessage = "Artist name must be 50 characters or less")]
     public string Artist { get; set; }
+    [Required]
     public int? YearRecorded { get; set; }
     [Required]
     public int? StatusId { get; set; }
