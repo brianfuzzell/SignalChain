@@ -55,6 +55,7 @@ export const CreateSong = () => {
             type="text"
             value={title}
             id="title"
+            required
             onChange={(e) => setTitle(e.target.value)}
           />
         </FormGroup>
@@ -73,15 +74,17 @@ export const CreateSong = () => {
             type="text"
             value={artist}
             id="artist"
+            required
             onChange={(e) => setArtist(e.target.value)}
           />
         </FormGroup>
         <FormGroup className="flex-fields">
           <Label for="year-recorded">Year Recorded</Label>
           <Input
-            type="text"
+            type="number"
             value={yearRecorded}
             id="year-recorded"
+            required
             onChange={(e) => SetYearRecorded(e.target.value)}
           />
         </FormGroup>
@@ -90,6 +93,7 @@ export const CreateSong = () => {
           <Input
             type="select"
             value={statusId}
+            required
             onChange={(e) => setStatusId(e.target.value)}
           >
             <option value="">Song status</option>
