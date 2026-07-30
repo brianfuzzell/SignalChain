@@ -55,6 +55,7 @@ export const CreateGear = ({ getInventory }) => {
           <Input
             type="select"
             value={gearTypeId}
+            required
             onChange={(e) => setGearTypeId(e.target.value)}
           >
             <option value="">Gear type</option>
@@ -72,24 +73,27 @@ export const CreateGear = ({ getInventory }) => {
             type="text"
             value={model}
             id="model"
+            required
             onChange={(e) => setModel(e.target.value)}
           />
         </FormGroup>
         <FormGroup className="flex-fields">
           <Label for="purchase-year">Purchase Year</Label>
           <Input
-            type="text"
+            type="number"
             value={purchaseYear}
             id="purchase-year"
+            required
             onChange={(e) => setPurchaseYear(e.target.value)}
           />
         </FormGroup>
         <FormGroup className="flex-fields">
           <Label for="quantity">Quantity</Label>
           <Input
-            type="text"
+            type="number"
             value={quantity}
             id="quantity"
+            required
             onChange={(e) => setQuantity(e.target.value)}
           />
         </FormGroup>

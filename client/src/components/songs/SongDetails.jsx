@@ -75,6 +75,7 @@ export const SongDetails = () => {
             type="text"
             value={formData.title}
             id="title"
+            required
             onChange={(e) =>
               setFormData({ ...formData, title: e.target.value })
             }
@@ -97,6 +98,7 @@ export const SongDetails = () => {
             type="text"
             value={formData.artist}
             id="artist"
+            required
             onChange={(e) =>
               setFormData({ ...formData, artist: e.target.value })
             }
@@ -105,9 +107,10 @@ export const SongDetails = () => {
         <FormGroup className="flex-fields">
           <Label for="year-recorded">Year Recorded</Label>
           <Input
-            type="text"
+            type="number"
             value={formData.yearRecorded}
             id="year-recorded"
+            required
             onChange={(e) =>
               setFormData({ ...formData, yearRecorded: e.target.value })
             }
